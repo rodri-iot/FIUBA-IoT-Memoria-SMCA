@@ -1,0 +1,461 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global/global}
+  \entry{WHO:2021}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=OWH}{%
+         family={Organization},
+         familyi={O\bibinitperiod},
+         given={Wordl\bibnamedelima Health},
+         giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {World Health Organization}%
+    }
+    \strng{namehash}{OWH1}
+    \strng{fullhash}{OWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{WHO global air quality guidelines: : Particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide}
+    \field{year}{2021}
+  \endentry
+
+  \entry{WHO:2018}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=OWH}{%
+         family={Organization},
+         familyi={O\bibinitperiod},
+         given={Wordl\bibnamedelima Health},
+         giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {World Health Organization}%
+    }
+    \strng{namehash}{OWH1}
+    \strng{fullhash}{OWH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Air pollution and child health: prescribing clean air}
+    \field{year}{2018}
+  \endentry
+
+  \entry{GCBA:2022}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=G}{%
+         family={{Gobierno de la Ciudad Autónoma de Buenos Aires}},
+         familyi={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{G1}
+    \strng{fullhash}{G1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Visitado el 2025-07-10}
+    \field{title}{Inventario de Emisiones de Gases de Efecto Invernadero de la Ciudad Autónoma de Buenos Aires}
+    \verb{url}
+    \verb https://buenosaires.gob.ar/inventario-y-mitigacion/resultados-de-los-
+    \verb inventarios-de-gases-de-efecto-invernadero
+    \endverb
+    \field{year}{2022}
+  \endentry
+
+  \entry{EPA:2025}{report}{}{}
+    \name{author}{4}{}{%
+      {{hash=CA}{%
+         family={Clements},
+         familyi={C\bibinitperiod},
+         given={Andrea},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=DR}{%
+         family={Duvall},
+         familyi={D\bibinitperiod},
+         given={Rachelle},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=GD}{%
+         family={Greene},
+         familyi={G\bibinitperiod},
+         given={Danny},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Dye},
+         familyi={D\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CA+1}
+    \strng{fullhash}{CADRGDDT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Versión en español, 508 TAGGED, publicado el 12/09/2022}
+    \field{title}{{Guía mejorada sobre sensores de aire}}
+    \verb{url}
+    \verb https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=CEMM&dirEntr
+    \verb yId=356426
+    \endverb
+    \list{location}{1}{%
+      {Research Triangle Park, NC 27711}%
+    }
+    \list{institution}{1}{%
+      {Agencia de Protección Ambiental de los Estados Unidos (EPA), Oficina de Investigación y Desarrollo, Centro de Mediciones y Modelos Ambientales}%
+    }
+    \field{type}{techreport}
+    \field{month}{09}
+    \field{year}{2022}
+  \endentry
+
+  \entry{Morawska:2018}{article}{}{}
+    \name{author}{5}{}{%
+      {{hash=ML}{%
+         family={Morawska},
+         familyi={M\bibinitperiod},
+         given={Lidia},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=TPK}{%
+         family={Thai},
+         familyi={T\bibinitperiod},
+         given={Phong\bibnamedelima K.},
+         giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Xin},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ASA}{%
+         family={Asumadu-Sakyi},
+         familyi={A\bibinithyphendelim S\bibinitperiod},
+         given={Akwasi},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=AG}{%
+         family={Ayoko},
+         familyi={A\bibinitperiod},
+         given={Godwin},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ML+1}
+    \strng{fullhash}{MLTPKLXASAAG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.envint.2018.04.018
+    \endverb
+    \field{pages}{286\bibrangedash 299}
+    \field{title}{{Applications of low-cost sensing technologies for air quality monitoring and exposure assessment: How far have they gone?}}
+    \field{volume}{116}
+    \field{journaltitle}{Environment International}
+    \field{year}{2018}
+  \endentry
+
+  \entry{Castell:2017}{article}{}{}
+    \name{author}{8}{}{%
+      {{hash=CN}{%
+         family={Castell},
+         familyi={C\bibinitperiod},
+         given={Nuria},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=DFR}{%
+         family={Dauge},
+         familyi={D\bibinitperiod},
+         given={Franck\bibnamedelima R.},
+         giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=SP}{%
+         family={Schneider},
+         familyi={S\bibinitperiod},
+         given={Philipp},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VM}{%
+         family={Vogt},
+         familyi={V\bibinitperiod},
+         given={Matthias},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LU}{%
+         family={Lerner},
+         familyi={L\bibinitperiod},
+         given={Uta},
+         giveni={U\bibinitperiod},
+      }}%
+      {{hash=FB}{%
+         family={Fishbain},
+         familyi={F\bibinitperiod},
+         given={Barak},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Broday},
+         familyi={B\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Bartonova},
+         familyi={B\bibinitperiod},
+         given={Alena},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CN+1}
+    \strng{fullhash}{CNDFRSPVMLUFBBDBA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1016/j.envint.2016.12.007
+    \endverb
+    \field{pages}{293\bibrangedash 302}
+    \field{title}{{Can commercial low-cost sensor platforms contribute to air quality monitoring and exposure estimates?}}
+    \field{volume}{99}
+    \field{journaltitle}{Environment International}
+    \field{year}{2017}
+  \endentry
+
+  \entry{SensorCommunity:2025}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={{Sensor.Community}},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{S2}
+    \strng{fullhash}{S2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{{Sensor.Community: Build your own sensor and join the worldwide civic tech network}}
+    \verb{url}
+    \verb https://sensor.community/
+    \endverb
+    \field{year}{2025}
+    \field{urlday}{18}
+    \field{urlmonth}{07}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{OpenAQ:2020}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=O}{%
+         family={OpenAQ},
+         familyi={O\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{O1}
+    \strng{fullhash}{O1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://openaq.org}}
+    \field{title}{Open data platform for air quality}
+    \field{year}{2020}
+    \field{urlday}{17}
+    \field{urlmonth}{07}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{PurpleAir:2021}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=LP}{%
+         family={LLC},
+         familyi={L\bibinitperiod},
+         given={PurpleAir},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LP1}
+    \strng{fullhash}{LP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://www2.purpleair.com}}
+    \field{title}{PurpleAir sensor network}
+    \field{year}{2021}
+    \field{urlday}{17}
+    \field{urlmonth}{07}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{Alvarez:2021}{article}{}{}
+    \name{author}{3}{}{%
+      {{hash=�C}{%
+         family={Álvarez},
+         familyi={�\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gómez},
+         familyi={G\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=CR}{%
+         family={Carmona},
+         familyi={C\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{�CGMCR1}
+    \strng{fullhash}{�CGMCR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1088/1748-9326/ac1b1e
+    \endverb
+    \field{number}{9}
+    \field{pages}{094001}
+    \field{title}{{Low-cost air quality sensors in Latin America: Opportunities and challenges}}
+    \field{volume}{16}
+    \field{journaltitle}{Environmental Research Letters}
+    \field{year}{2021}
+  \endentry
+
+  \entry{FIUBA:2023}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=OIJC}{%
+         family={Ordoñez},
+         familyi={O\bibinitperiod},
+         given={Ing. Jonathan\bibnamedelima Cagua},
+         giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{OIJC1}
+    \strng{fullhash}{OIJC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://lse-posgrados-files.fi.uba.ar/tesis/LSE-FIUBA-Trabajo-Final-CESE-Jonathan-Cagua-Ordonez-2023.pdf}}
+    \field{title}{Monitor portable de calidad de aire}
+    \field{year}{2023}
+    \field{urlday}{17}
+    \field{urlmonth}{07}
+    \field{urlyear}{2025}
+  \endentry
+
+  \entry{heltec:v3}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=H}{%
+         family={{Heltec Automation}},
+         familyi={H\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{H1}
+    \strng{fullhash}{H1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://heltec.org/project/wifi-lora-32-v3/}}
+    \field{note}{Consultado el 01/08/2025}
+    \field{title}{{WiFi LoRa 32 V3 – Microcontroller con Wi-Fi, LoRa y OLED integrado}}
+    \field{year}{2025}
+  \endentry
+
+  \entry{plantower:pms7003}{manual}{}{}
+    \name{author}{1}{}{%
+      {{hash=P}{%
+         family={{Plantower}},
+         familyi={P\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Plantower Co., Ltd.}%
+    }
+    \strng{namehash}{P1}
+    \strng{fullhash}{P1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Versión consultada el 01/08/2025}
+    \field{title}{PMS7003 Series Data Manual}
+    \verb{url}
+    \verb https://aqicn.org/sensor/pms5003-7003/
+    \endverb
+    \field{year}{2016}
+  \endentry
+
+  \entry{sensirion:scd40}{manual}{}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={{Sensirion AG Switzerland}},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Sensirion AG Switzerland}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Versión consultada el 01/08/2025}
+    \field{title}{SCD40 CO₂ Sensor Datasheet}
+    \verb{url}
+    \verb https://sensirion.com/products/catalog/SCD40
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{sensirion:sgp30}{manual}{}{}
+    \name{author}{1}{}{%
+      {{hash=S}{%
+         family={{Sensirion AG Switzerland}},
+         familyi={S\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Sensirion AG Switzerland}%
+    }
+    \strng{namehash}{S1}
+    \strng{fullhash}{S1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Versión consultada el 01/08/2025}
+    \field{title}{SGP30 Multi-Gas Sensor Datasheet}
+    \verb{url}
+    \verb https://sensirion.com/products/catalog/SGP30
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{TTN:2025}{misc}{}{}
+    \name{author}{1}{}{%
+      {{hash=T}{%
+         family={{The Things Network}},
+         familyi={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{T1}
+    \strng{fullhash}{T1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://www.thethingsnetwork.org/}}
+    \field{note}{Accedido el 1 de agosto de 2025}
+    \field{title}{The Things Network — Building a global open LoRaWAN network}
+    \verb{url}
+    \verb https://www.thethingsnetwork.org/
+    \endverb
+    \field{year}{2025}
+  \endentry
+\enddatalist
+\endinput

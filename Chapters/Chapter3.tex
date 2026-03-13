@@ -1,0 +1,114 @@
+\chapter{Diseño e implementación} % Main chapter title
+
+\label{Chapter3} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+En este capítulo se describe la arquitectura modular del sistema, diseñada para gestionar de forma independiente cada uno de sus componentes. La estructura implementada asegura flexibilidad durante el desarrollo, escalabilidad en su implementación y facilidad de mantenimiento a largo plazo.
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% parámetros para configurar el formato del código en los entornos lstlisting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygreen},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  %escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  %extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  %frame=single,	                % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{blue},       % keyword style
+  language=[ANSI]C,                % the language of the code
+  %otherkeywords={*,...},           % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's 1, each line will be numbered
+  stringstyle=\color{mymauve},     % string literal style
+  tabsize=2,	                   % sets default tabsize to 2 spaces
+  title=\lstname,                  % show the filename of files included with \lstinputlisting; also try caption instead of title
+  morecomment=[s]{/*}{*/}
+}
+
+
+%----------------------------------------------------------------------------------------
+%	SECTION 1
+%----------------------------------------------------------------------------------------
+\section{Diseño general del sistema IoT}
+
+El trabajo se presenta como un Sistema de Monitoreo de Calidad del Aire (SMCA), basado en una arquitectura modular que permite integrar de forma progresiva sus distintos componentes. La figura \ref{fig:3_1-modular} ilustra la estructura general del sistema, se destaca las interacciones entre sus módulos principales.
+
+
+\vspace{0.5cm}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figures/3_1-Modular_Structure.png}
+    \caption{Estructura modular del sistema SMCA.}
+    \label{fig:3_1-modular}
+\end{figure}
+
+La estructura general del sistema IoT está compuesta por los siguientes módulos:
+
+\begin{itemize}
+    \item Módulo de adquisición de datos (nodo IoT): conformado por un microcontrolador y sensores ambientales. Es responsable de capturar variables como material particulado, gases, temperatura y humedad, y de gestionar las lecturas de forma autónoma.
+    
+    \item Módulo de comunicación: se encarga de la transmisión de datos desde los nodos hacia el backend. El sistema selecciona la tecnología adecuada según la disponibildiad de infraestructura, emplea Wi-Fi con protocolo MQTTs o red LoRaWAN a través de un gateway.
+    
+    \item Módulo backend (API y procesamiento): desarrollado en Node.js, recibe y valida las lecturas provenientes de los nodos. También administra la autenticación de dispositivos y usuarios, el control de accesos y la gestión de zonas y dispositivos.
+    
+    \item Módulo de almacenamiento: compuesto por una base de datos MongoDB, diseñada para almacenar las mediciones de manera eficiente y estructurada, que permite consultas flexibles por zona, dispositivo y rango temporal.
+    
+    \item Módulo de visualización (frontend web): interfaz implementada con React, que permite consultar datos en tiempo real, visualizar históricos, gestionar dispositivos, zonas y usuarios, y monitorear indicadores ambientales desde una interfaz intuitiva.
+\end{itemize}
+
+La organización modular del sistema facilitó el desarrollo y la prueba de cada componente de forma independiente. Posteriormente, se integraron los módulos en una arquitectura unificada, lo que permitió reducir la complejidad de implementación. Esta estructura garantiza la escalabilidad, ya que permite ampliar la cantidad de nodos, usuarios o zonas monitoreadas sin afectar la estabilidad ni el rendimiento general del sistema.
+
+\section{Diseño e implementación del firmware (ESP32)}
+El firmware desarrollado para el nodo IoT se implementó sobre el microcontrolador ESP32 Heltec V3, con capacidades de comunicación Wi-Fi y LoRa integradas. El desarrollo del software se realizó con el framework de ESP-IDF, lo que permitió un control detallado sobre los periféricos y la gestión de los recursos del dispositivo.
+
+El firmware se estructuró de manera modular, dividido en las funcionalidades principales de los siguientes componentes:
+
+\begin{itemize}
+    \item Módulo de inicialización: configura los periféricos del ESP32, establece la comunicación con los sensores a través de buses I2C y UART, y valida el correcto funcionamiento de los dispositivos conectados.
+    
+    \item Módulo de adquisición de datos: se encarga de solicitar las mediciones a cada sensor según su protocolo de comunicación. Los datos se almacenan temporalmente en variables estructuradas, para asegurar su integridad antes de la transmisión.
+    
+    \item Módulo de comunicación: gestiona el envío de datos al servidor central, mediante el canal adecuado según la configuración del nodo (Wi-Fi/MQTTs o LoRaWAN). Este módulo implementa mecanismos de reconexión y control de errores.
+    
+    \item Módulo de seguridad: configura la autenticación mediante certificados TLS para conexiones MQTT y gestiona las claves de cifrado necesarias en el caso de transmisión LoRaWAN.
+\end{itemize}
+
+El ciclo de operación del nodo sigue una lógica secuencial. Primero, el sistema inicializa los periféricos y verifica la disponibilidad de los sensores. Luego, se ejecuta la rutina de adquisición de datos, donde se obtienen las lecturas de PM$_{2.5}$, CO$_2$, VOCs, temperatura y humedad. Posteriormente, los datos se transmiten al servidor a través del canal definido.
+
+El firmware incorpora mecanismos de control de errores, como reintentos de lectura y envío, y permite configurar el intervalo de medición según las necesidades del entorno. Esta arquitectura modular facilita futuras modificaciones, como la incorporación de nuevos sensores o la adaptación a otros métodos de comunicación.
+
+
+\section{Diseño e implementación del backend}
+
+
+\section{Diseño e implementación del frontend web}
+
+
+\section{Diseño de la base de datos}
+
+
+\section{Comunicación IoT}
+
+
+\section{Despliegue del sistema en la nube}
+
+
+\section{Integración del sistema y pruebas modulares}
+
+
+\section{Consideraciones de escalabilidad y mantenimiento}
+
