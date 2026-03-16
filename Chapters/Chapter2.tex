@@ -5,26 +5,13 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-Este capítulo presenta los principales componentes tecnológicos que conforman el sistema desarrollado. Se describe la arquitectura general, los dispositivos seleccionados, las tecnologías de comunicación utilizadas y la plataforma web de visualización. También, se exponen los escenarios de uso previstos y las posibles aplicaciones prácticas.
+Este capítulo presenta los principales componentes tecnológicos que conforman el sistema desarrollado. Se describe la arquitectura general, los dispositivos seleccionados y las tecnologías de comunicación utilizadas. También se exponen los escenarios de uso previstos y las posibles aplicaciones prácticas de la solución.
 
 \section{Arquitectura general del sistema}
 \label{sec:Arquitectura general del sistema}
 
-El sistema se organiza en torno a tres componentes principales: nodos sensores distribuidos, mecanismos de transmisión de datos y una plataforma web para la consulta de resultados. Cada nodo está construido sobre el microcontrolador ESP32 Heltec V3 \cite{heltec:v3}, que integra conectividad Wi-Fi y LoRa.
+El sistema se organiza en torno a tres componentes principales: nodos sensores distribuidos, mecanismos de transmisión y una plataforma web de consulta. Esta estructura permite recolectar datos ambientales para su posterior procesamiento en una infraestructura centralizada. La figura \ref{fig:2-1-diagrama} ilustra de forma esquemática la interconexión entre estos elementos.
 
-A cada nodo se incorporan sensores específicos para la detección de distintos contaminantes atmosféricos. Se incluyó el PMS7003 \cite{plantower:pms7003} para medición de material particulado ($PM_{2.5}$ y $PM_{10}$), el CJMCU-4541 para gases como monóxido de carbono y dióxido de nitrógeno, el SCD40 \cite{sensirion:scd40} para concentración de $CO_2$, temperatura y humedad, y el SGP30 \cite{sensirion:sgp30} como alternativa para VOCs.
-
-Las mediciones se registran de forma periódica y se transmiten al servidor central mediante dos esquemas de comunicación, definidos según el entorno: red Wi-Fi con protocolo MQTT sobre TLS en contextos con conectividad estable, o red LoRaWAN en zonas con baja cobertura o infraestructura limitada.
-
-El backend del sistema, desarrollado con Node.js, se encargó de recibir, validar y almacenar las lecturas transmitidas por los nodos. Los datos se persistieron en una base de datos MongoDB, y se implementaron certificados TLS para garantizar la autenticación de los dispositivos y la integridad de la información.
-
-Para la visualización, se diseñó una plataforma web desarrollada en React, que permite acceder a las mediciones en tiempo real, explorar series históricas, exportar datos en formato abierto y verificar el estado operativo de cada dispositivo. Además, se habilitó una vista pública limitada para nodos seleccionados.
-
-El sistema contempla una arquitectura multiempresa. Cada organización puede registrar zonas, asociar dispositivos, definir responsables de supervisión y restringir accesos según roles específicos. El diseño modular y el uso de tecnologías abiertas permiten su escalabilidad, adaptabilidad y bajo costo de implementación en diversos escenarios urbanos o industriales.
-
-La figura \ref{fig:2-1-diagrama} ilustra de forma esquemática la arquitectura general del sistema, donde se resalta la conexión entre nodos, gateway LoRa, servidor backend y panel web.
-
-\vspace{0.5cm}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.85\linewidth]{Figures/2_1-diagrama.png}
@@ -32,47 +19,41 @@ La figura \ref{fig:2-1-diagrama} ilustra de forma esquemática la arquitectura g
     \label{fig:2-1-diagrama}
 \end{figure}
 
+Cada unidad recolectora utiliza el microcontrolador \texttt{ESP32 Heltec V3} \cite{heltec:v3} para la gestión de sensores y la comunicación inalámbrica. El nodo integra sensores específicos para medir material particulado, gases contaminantes y variables climáticas.
+
+La transmisión de datos se realiza hacia un servidor central mediante el protocolo \textit{MQTT} (del inglés, \textit{Message Queuing Telemetry Transport}) sobre una red \textit{Wi-Fi}. Finalmente, una plataforma web desarrollada con herramientas modernas permite la visualización de la información en tiempo real.
+
 %----------------------------------------------------------------------------------------
 
 \section{Dispositivos IoT y sensores seleccionados}
 
-Para el desarrollo del sistema se optó por utilizar el microcontrolador ESP32 Heltec V3 como base de los nodos sensores. Esta placa integra un procesador de doble núcleo, conectividad Wi-Fi y un transceptor LoRa SX1262, lo que permite operar en entornos con o sin acceso a infraestructura de red tradicional.
+Para el desarrollo del sistema se optó por el microcontrolador \texttt{ESP32 Heltec V3} como unidad cental de los nodos. Esta placa integra un procesador de docle núcleo y conectividad \textit{Wi-Fi} nativa. La elección responde a su bajo consumo energético y la compatibilidad con múltiples interfaces de comunicación digital como \texttt{I2C} y \texttt{UART}.
 
-La elección del ESP32 respondió a varios criterios técnicos: bajo consumo energético, amplia documentación, soporte en plataformas como PlatformIO y compatibilidad con múltiples interfaces de comunicación digital (I2C, UART, SPI). Su arquitectura flexible permite integrar sensores de distintas naturalezas sin comprometer la estabilidad del sistema.
+Se seleccionaron sensores ambientales con un equilibrio entre costo y confiabilidad técnica. Estos compoenentes permiten caracterizar la calidad del aire mediante la medición de partículas y gases. Todos los dispositivos elegidos emplean protocolos de comunicación digital para asegurar la integridad de las señales frente a interferencias.
 
-Se seleccionaron sensores ambientales de bajo costo, pero con aceptable confiabilidad para aplicaciones orientadas a la toma de decisiones. Los principales fueron:
+Los sensores principales que integran la solución son:
 
 \begin{itemize}
-    \item PMS7003 \cite{plantower:pms7003}: sensor óptico de partículas para medición de material particulado en suspensión ($PM_{2.5}$ y $PM_{10}$). Se comunica por UART y ofrece alta sensibilidad en rangos urbanos.
-    
-    \item CJMCU-4541: módulo multigas que incluye celdas electroquímicas para detección de gases oxidantes (como $NO_2$), reductores (como CO) y amoníaco. Utiliza protocolo I2C.
-    
-    \item SCD40 \cite{sensirion:scd40}: sensor digital para $CO_2$, temperatura y humedad relativa, con compensación automática y bajo consumo. Se comunica por I2C y permite obtener datos confiables en ambientes interiores.
-    
-    \item SGP30 \cite{sensirion:sgp30}: sensores alternativos para VOCs.Utiliza protocolo I2C.
+    \item \texttt{PMS7003} \cite{plantower:pms7003}: sensor óptico que utiliza la dispersión láser para medir material particulado ($PM_{2.5}$ y $PM_{10}$).
+    \item \texttt{CJMCU-4541}: módulo multigas para la detección de monóxido de carbono, dióxido de nitrógeno y amoníaco.
+    \item \texttt{SCD40} \cite{sensirion:scd40}: sensor fotoacústico para la medición de $CO_2$, temperatura y humedad relativa.
+    \item \texttt{SGP30} \cite{sensirion:sgp30}: sensor de membrana de metal-óxido para la detección de compuestos orgánicos volátiles (\textit{VOCs}).
 \end{itemize}
 
-La combinación de estos sensores permite una caracterización básica pero significativa de la calidad del aire. Todos ellos emplean comunicación digital, lo que simplifica el diseño del firmware y mejora la robustez del sistema frente a interferencias eléctricas.
-
-Además, se consideró la posibilidad de reemplazar o ampliar la configuración de sensores en futuras versiones, gracias a la arquitectura modular tanto del hardware como del software desarrollado.
-
-La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, incluidas las variables medidas, sus protocolos de comunicación y una estimación del consumo energético:
+La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, incluidas las variables medidas y sus protocolos de comunicación:
 
 \begin{table}[h]
     \centering
     \caption[Resumen de sensores utilizados]{Sensores seleccionados para el sistema SMCA y sus principales características.}
     \label{tab:sensores}
-    \begin{tabular}{p{2cm} p{3cm} p{2.5cm} p{3.5cm}}
+    \begin{tabular}{p{3.5cm} p{5.5cm} p{2.5cm}}
         \toprule
-        \textbf{Sensor} & \textbf{Variable medida} & \textbf{Comunicación} & \textbf{Consumo típico} \\
+        \textbf{Sensor} & \textbf{Variable medida} & \textbf{Comunicación} \\
         \midrule
-        PMS7003 & PM$_{2.5}$, PM$_{10}$ & UART & 100 mA (medición)  \\
-        
-        CJMCU-4541 & NO$_2$, CO, NH$_3$ (gases múltiples) & I2C & ~10 mA  \\
-        
-        SCD40 & CO$_2$, temperatura, humedad & I2C & 19 mA (medición)  \\
-        
-        SGP30 & VOCs & I2C & 12–48 mA \\
+        PMS7003 & PM$_{2.5}$, PM$_{10}$ & UART  \\
+        CJMCU-4541 & NO$_2$, CO, NH$_3$ & I2C \\
+        SCD40 & CO$_2$, temperatura, humedad & I2C \\
+        SGP30 & VOCs & I2C \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -81,50 +62,41 @@ La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, i
 
 \section{Tecnologías de comunicación utilizadas}
 
-El sistema contempla dos esquemas principales de transmisión de datos desde los nodos sensores hacia el servidor central: la comunicación sobre red Wi-Fi mediante el protocolo MQTT con cifrado TLS, y la transmisión a través de la tecnología LoRaWAN para entornos sin acceso a infraestructura de red local.
+El sistema emplea una red \textit{wi-Fi} para la tansmisión de datos desde los nodos sensores hacia el servidor central. Esta tecnología permite el despliegue de los dispositivos en entornos con infraestructura de red preexistente. El esquema de comunicación se basa en el protocolo \textit{MQTT} con una capa de seguridad adicional.
 
-MQTT sobre TLS se maneja en escenarios donde los nodos se encuentran dentro de un entorno con conectividad Wi-Fi estable. Este protocolo se caracteriza por su bajo consumo de ancho de banda, soporte nativo para el modelo publish-subscribe y excelente desempeño en redes intermitentes. La integración de certificados TLS permitió garantizar la autenticación de los nodos emisores, la integridad de los datos y la confidencialidad en la transmisión. Esta combinación resulta particularmente adecuada para aplicaciones sensibles, como el monitoreo ambiental, donde se requiere proteger tanto los datos como su origen.
+\textit{MQTT} se caracteriza por su bajo consumo de ancho de banda y su eficiencia en redes inanlámbricas. El protocolo utiliza un modelo de publicación y suscripción que facilita la gestión de múltiples nodos de forma simultánea. Esta arquitectura resulta adecuada para aplicaciones de monitoreo ambiental donde se requiere un flujo de datos constante y ligero.
 
-LoRaWAN, por otro lado, se emplea en entornos con baja conectividad, distancias largas o restricción en el consumo energético. La transmisión se realiza por medio de frecuencias libres licenciadas (como 915 MHz en la región). Gracias a su arquitectura basada en gateways y servidores de red, es posible desplegar nodos sin infraestructura propia, como ser las redes públicas de The Things Network (TTN) \cite{TTN:2025}.
-
-Ambos esquemas de comunicación pueden coexistir dentro del sistema, lo que brinda flexibilidad en la instalación de nodos según el contexto. Esta dualidad permite adaptar el despliegue a zonas urbanas densas, corredores viales, parques industriales o comunidades educativas, sin necesidad de rediseñar la arquitectura del sistema.
+La segurdad en la transmisión se garantiza mediante el uso de certificados \textit{TLS}. Este mecanismo asegura la autenticación de los nodos emisores y la confidencialidad de la información. La integración de \textit{TLS} protege el sistema frete a posibles ataques de interceptación en la red.
 
 %----------------------------------------------------------------------------------------
 \section{Plataforma web para visualización}
 
-Se parte de la primicia de asegurar una experiencia fluida y adaptable a muchos dispositivos. Se eligió el framework de React para el desarrollo del frontend, logrando interfaces dinámicas y accesibles. Por otro lado, se empleó WebSocket y MQTT para permitir transmitir datos en tiempo real.
+El sistema cuenta con una aplicación web diseñada para asegurar una experiencia fluida en diversos dispositivos. Se seleccionó la biblioteca \texttt{React} para el desarrollo del \textit{frontend} (del inglés, capa de presentación). Esta arquitectura se basa en el modelo de \textit{Single Page Application} (del inglés, aplicación de una sola página).
 
-El concepto de \textit{Single Page Application} (SPA) facilita una navegación fluida sin recargas constantes. Las APIs RESTful proporcionan un mecanismo estándar para exponer y consultar datos ambientales. La arquitectura escalable soporta múltiples usuarios y organizaciones en entornos unificados.
+Esta tecnología permite una navegación eficiente y evita la recarga total del navegador ante cada interacción. La plataforma integra un sistema de gestión de usuarios con diferentes niveles de acceso. Se implementó un panel de control o \textit{dashboard} para la visualización general de los datos ambientales.
 
-La plataforma debe garantizar visualización en tiempo real de datos ambientales y acceso a mediciones históricas. Exige seguridad mediante protocolos como TLS y autenticación basada en roles. También requiere compatibilidad con dispositivos móviles y de escritorio para usuarios públicos y privados.
+La aplicación dispone de menús específicos para la administración de zonas y dispositivos. Asimismo, se habilitó una vista de invitado para la consulta pública de datos sin necesidad de autenticación. El sistema consume servicios de una \textit{API RESTful} (del inglés, \textit{Representational State Transfer}) para obtener información del \textit{backend}.
 
-MongoDB ofrece flexibilidad para gestionar datos semi-estructurados en aplicaciones escalables. Protocolos como MQTT con cifrado TLS y Server-Sent Events (SSE) permiten una comunicación eficiente y segura. Estas tecnologías soportan la integración de nodos sensores con la plataforma web.
+La persistencia de los datos se realiza en una base de datos no estructurada \texttt{MongoDB}. La seguridad de la aplicación web se garantiza mediante protocolos de cifrado y un esquema de autenticación por roles. Esta estructura modular facilita el mantenimiento y la escalabilidad del ecosistema tecnológico.
 
 %----------------------------------------------------------------------------------------
 \section{Escenarios de uso y posibles aplicaciones}
 
-El sistema fue concebido como una herramienta flexible y adaptable a diversos entornos urbanos e industriales. Su arquitectura modular, la posibilidad de operar en redes LoRaWAN o Wi-Fi, y la interfaz multiusuario permiten su implementación en contextos con distintos niveles de conectividad, infraestructura y necesidades de monitoreo.
-
-Entre los escenarios de uso más relevantes se encuentran:
+El sistema constituye una herramienta flexible y adaptable a diversos entornos urbanos e industriales. Su arquitectura modular y la interfaz multiusuario permiten su implementación en contextos con distintos niveles de infraestructura y necesidades de monitoreo. Los escenarios de uso más relevantes se detallan a continuación:
 
 \begin{itemize}
-    \item Instituciones educativas: monitoreo de calidad del aire en aulas, patios y entornos próximos a avenidas o fuentes de contaminación. La información puede ser utilizada por equipos directivos para decidir sobre ventilación, actividades al aire libre o estrategias pedagógicas orientadas al cuidado ambiental.
-
-    \item Zonas industriales o logísticas: seguimiento continuo de concentraciones de material particulado y gases contaminantes en áreas expuestas a emisiones. El sistema permite anticipar situaciones de riesgo y respaldar auditorías ambientales o cumplimientos normativos.
-
-    \item Gobiernos locales: despliegue de nodos en espacios públicos, corredores viales o parques urbanos para generar mapas ambientales dinámicos y alimentar procesos de toma de decisiones en políticas de transporte, salud y urbanismo.
-
-    \item Organizaciones comunitarias o ambientales: empoderamiento ciudadano a través del acceso abierto a datos de calidad del aire. La plataforma permite identificar zonas críticas y generar alertas tempranas ante condiciones adversas.
+    \item Instituciones educativas: permite el monitoreo de la calidad del aire en aulas, patios y entornos próximos a fuentes de contaminación. La información asiste a los equipos directivos en la toma de decisiones sobre ventilación o actividades al aire libre.
+    \item Zonas industriales o logísticas: acilita el seguimiento continuo de concentraciones de material particulado y gases en áreas expuestas a emisiones. El sistema ayuda a anticipar situaciones de riesgo y respalda auditorías ambientales.
+    \item Gobiernos locales: permite el despliegue de nodos en espacios públicos para generar mapas ambientales dinámicos. Estos datos alimentan procesos de decisión en políticas de transporte, salud y urbanismo.
+    \item Organizaciones comunitarias o ambientales: omenta el empoderamiento ciudadano mediante el acceso abierto a datos ambientales. La plataforma identifica zonas críticas y genera alertas tempranas ante condiciones adversas.
 \end{itemize}
 
-El sistema contempla tres perfiles de usuarios:
+El sistema contempla tres perfiles de usuarios para su operación:
 
 \begin{itemize}
-    \item Administrador general: gestiona organizaciones, zonas y usuarios. Tiene acceso completo a todas las funcionalidades del sistema.
-    \item Supervisor: responsable de una o más zonas. Puede monitorear los dispositivos asignados, visualizar datos y exportar reportes.
-    \item Usuario público: accede a la información compartida por nodos marcados como públicos, sin necesidad de autenticación.
+    \item Administrador general: gestiona organizaciones, zonas y usuarios con acceso completo a todas las funcionalidades.
+    \item Supervisor: monitorea dispositivos asignados a una o más zonas, visualiza datos y exporta reportes.
+    \item Usuario público: accede a la información de los nodos marcados como públicos sin necesidad de autenticación.
 \end{itemize}
 
-Ejemplo de aplicación: en una escuela ubicada en una zona de alta circulación vehicular, se instala un nodo sensor en el patio principal. El equipo directivo accede al panel web para visualizar los niveles de $PM_{2.5}$ y $CO_2$ durante la jornada. Ante valores elevados, se decide evitar actividades físicas al aire libre y reforzar la ventilación en las aulas.
-
-Este tipo de aplicación demuestra cómo el sistema permite tomar decisiones informadas con base en datos ambientales en tiempo casi real.
+Un ejemplo de aplicación práctica ocurre en una escuela ubicada en una zona de alta circulación vehicular. El equipo directivo visualiza los niveles de $PM_{2.5}$ y $CO_2$ durante la jornada escolar a través del panel web. Ante valores elevados, se decide suspender actividades al aire libre y reforzar la ventilación en las aulas. Este escenario demuestra cómo el sistema permite tomar decisiones informadas con base en datos obtenidos en tiempo casi real.
