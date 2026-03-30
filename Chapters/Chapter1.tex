@@ -5,7 +5,7 @@
 \label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
 \label{IntroGeneral}
 
-Este capítulo introduce el contexto del trabajo, expone los desafíos vinculados a la calidad del aire. Además, describe brevemente el sistema desarrollado, presenta los objetivos planteados y anticipa la estructura del documento.
+Este capítulo introduce el contexto del trabajo y expone los desafíos vinculados a la calidad del aire. Además, describe brevemente el sistema desarrollado, presenta los objetivos planteados y el alcance del trabajo.
 
 %----------------------------------------------------------------------------------------
 
@@ -24,29 +24,15 @@ Este capítulo introduce el contexto del trabajo, expone los desafíos vinculado
 %----------------------------------------------------------------------------------------
 \section{Desafios ambientales}
 
-La calidad del aire constituye un componente esencial para la salud pública y el bienestar colectivo. En las últimas décadas, el crecimiento acelerado de los entornos urbanos provocó un deterioro progresivo en las condiciones atmosféricas.
+La calidad del aire constituye un componente esencial para la salud pública y el bienestar colectivo. En las últimas décadas, el crecimiento acelerado de los entornos urbanos provocó un deterioro progresivo en las condiciones atmosféricas. Este fenómeno se vincula al aumento de la actividad industrial y el incremento del parque automotor. La situación derivó en una mayor concentración de contaminantes como el material particulado (PM$_2.5$ y PM$_10$), el dióxido de nitrógeno (NO$_2$), el dióxido de carbono (CO$_2$) y diversos compuestos orgánicos volátiles (VOCs).
 
-Este fenómeno se vincula al aumento de la actividad industrial y el incremento del parque automotor. La situación derivó en una mayor concentración de contaminantes como el material particulado (PM$_2.5$ y PM$_10$), el dióxido de nitrógeno (NO$_2$), el dióxido de carbono (CO$_2$) y diversos compuestos orgánicos volátiles (VOCs).
-
-Estos elementos impactan negativamente sobre la salud respiratoria, neurológica y cardiovascular de la población expuesta \cite{WHO:2021}. La Organización Mundial de la Salud (OMS) actualizó en 2021 sus valores guía para la exposición a contaminantes atmosféricos \cite{WHO:2021}. 
-
-La revisión incorporó evidencia sobre efectos adversos sobre la salud en niveles inferiores a los límites previos. Entre los grupos más vulnerables se encuentran niños, personas mayores y pacientes con enfermedades cróniccas \cite{WHO:2018}.
+Estos elementos impactan negativamente sobre la salud respiratoria, neurológica y cardiovascular de la población expuesta \cite{WHO:2021}. La Organización Mundial de la Salud (OMS) actualizó en 2021 sus valores guía para la exposición a contaminantes atmosféricos \cite{WHO:2021}. La revisión incorporó evidencia de efectos adversos sobre la salud en niveles inferiores a los límites previos. Entre los grupos más vulnerables se encuentran niños, personas mayores y pacientes con enfermedades cróniccas \cite{WHO:2018}.
 
 Este escenario exige herramientas confiables y en tiempo real para el monitoreo de la calidad del aire. Según el inventario de emisiones de la Ciudad Autónoma de Buenos Aires \cite{GCBA:2022}, se alcanzan niveles críticos de toneladas de CO2 por año. Los principales emisores corresponden al sector energético, con el 55 \% del total; el transporte, con un 28 \%; y el sector de residuos, que contribuyó con el 17 \% de las emisiones.
 
 Las soluciones basadas en \textit{IoT} (del inglés, \textit{Internet of Things}) ofrecen una alternativa viable para ampliar la cobertura de medición. Estos sistemas facilitan el acceso a la información y reducen los costos de infraestructura
 
 %----------------------------------------------------------------------------------------
-
-\subsection{Descripción general del sistema}
-
-El trabajo consiste en un sistema de monitoreo de calidad de aire basado en tecnologías \textit{IoT}. La solución integra microcontroladores, sensores ambientales y comunicación inalámbrica con una interfaz digital.
-
-Los nodos sensores registran mediciones de manera periódica y las transmiten a una infraestructura central. El sistema central recibe y valida los datos generados por cada nodo para su posterior almacenamiento. El proceso emplea esquemas de autenticación y cifrado para asegurar la integridad de la información.
-
-La plataforma cuenta con una aplicación web para la visualización de datos según los privilegios del usuario. La arquitectura permite una gestión multiempresa mediante un panel administrativo.
-
-Esta herramienta se define por su bajo costo y escalabilidad. El diseño facilita la adaptación a diversos contextos urbanos e industriales.
 
 \subsection{Introducción al índice de calidad del aire AQI}
 
@@ -59,7 +45,7 @@ El Índice de Calidad del Aire AQI (del inglés, \textit{Air Quality Index}) es 
 	\label{fig:1_5-AQI}
 	\end{figure}
 	
-	\footnotetext{Fuente: Adaptado de \cite{EPA:2025} Guía mejorada sobre sensores de aire, Apéndice E.}
+	\footnotetext{Fuente: adaptado de \cite{EPA:2025} Guía mejorada sobre sensores de aire, Apéndice E.}
 	
 Los valores abarcan desde “buena” (0–50) hasta “peligrosa” (301 o más). El sistema utiliza colores codificados para facilitar la interpretación y brinda recomendaciones sanitarias.
 	
@@ -77,9 +63,7 @@ Estas limitaciones responden a los elevados costos de adquisición y mantenimien
 
 En este escenario, el uso de tecnologías de \textit{IoT} ofrece una oportunidad para descentralizar la medición. Estos sistemas reducen los costos operativos y facilitan el acceso a la información en tiempo real.
 
-El despliegue de nodos sensores compactos habilita nuevos modelos de monitoreo para la acción local. El propósito de este trabajo consiste en el diseño de una solución integral para capturar variables de calidad del aire.
-
-Se desarrolló una arquitectura modular, segura y escalable para diversos requerimientos institucionales. Este sistema presenta los datos mediante una plataforma web de fácil acceso.
+El despliegue de nodos sensores compactos habilita nuevos modelos de monitoreo para la acción local. El propósito de este trabajo consiste en el diseño de una solución integral para capturar variables de calidad del aire. Contar con esta información permitirá que el usuario tome decisiones informadas respecto al impacto ambiental y a la salud pública.
 
 %----------------------------------------------------------------------------------------
 
@@ -89,11 +73,9 @@ El monitoreo de calidad del aire se aborda históricamente mediante estaciones f
 
 Frente a estas limitaciones, surgieron soluciones basadas en sensores de bajo costo. Estos dispositivos permiten ampliar la cobertura y acercar el monitoreo a zonas sin medición previa. No obstante, presentan desafíos en la calibración y control de calidad \cite{Morawska:2018, Castell:2017}.
 
-Plataformas como \textit{Sensor.Community}, \textit{OpenAQ} y \textit{PurpleAir} promueven el monitoreo colaborativo. Si bien lograron una amplia capilaridad, en muchos casos carecen de trazabilidad o validación técnica. A nivel comercial, empresas como \textit{QAir} y \textit{Clarity} ofrecen soluciones avanzadas con visualización web \cite{SensorCommunity:2025, OpenAQ:2020, PurpleAir:2021}.
+Plataformas como Sensor.Community, OpenAQ y PurpleAir promueven el monitoreo colaborativo. Si bien lograron una amplia capilaridad, en muchos casos carecen de trazabilidad o validación técnica. A nivel comercial, empresas como QAir y Clarity ofrecen soluciones avanzadas con visualización web \cite{SensorCommunity:2025, OpenAQ:2020, PurpleAir:2021}.
 
-En América Latina existen desarrollos universitarios que implementan sensores económicos. Sin embargo, pocos integran funcionalidades como un \textit{backend} seguro o control por roles. El sistema desarrollado combina el bajo costo con características institucionales \cite{Alvarez:2021, FIUBA:2023}.
-
-Se integran sensores específicos, conectividad \textit{Wi-Fi} y cifrado \textit{TLS} (del inglés, \textit{Transport Layer Security}) mediante el protocolo \textit{MQTT} (del inglés, \textit{Message Queuing Telemetry Transport}). La solución emplea una base de datos no estructurada y una arquitectura multiusuario. Su diseño modular asegura flexibilidad y escalabilidad.
+En América Latina existen desarrollos universitarios que implementan sensores económicos. Sin embargo, pocos integran funcionalidades como un backend seguro o control por roles. Incluso dejan de lado el uso de protocolos seguros de comunicación y una visualización web adecuada \cite{Alvarez:2021, FIUBA:2023}.
 
 La tabla \ref{tab:comparacion-soluciones} presenta una comparación entre soluciones actuales y el sistema desarrollado.
 
@@ -103,14 +85,14 @@ La tabla \ref{tab:comparacion-soluciones} presenta una comparación entre soluci
 	\label{tab:comparacion-soluciones}
 	\begin{tabular}{p{4cm} p{2cm} p{2cm} p{2.2cm}}
 		\toprule
-		\textbf{Criterio} & \textbf{Estación tradicional} & \textbf{Sensor ciudadano} & \textbf{Propuesta desarrollada} \\
+		\textbf{Criterio} & \textbf{Estación tradicional} & \textbf{Sensor ciudadano} & \textbf{Soluciones privadas} \\
 		\midrule
-		Costo por nodo               & Muy alto   & Bajo         & Medio-bajo \\
+		Costo por nodo               & Muy alto   & Bajo         & Medio-alto \\
 		Precisión                    & Alta       & Media        & Media \\
 		Cobertura geográfica         & Baja       & Alta         & Media-alta \\
-		Comunicación segura (\textit{TLS})    & Sí         & No           & Sí \\
+		Comunicación segura (\textit{TLS})    & Sí         & No           & Parcial \\
 		\textit{Backend}             & Sí         & No           & Sí \\
-		Visualización en tiempo real & No siempre & Parcial      & Sí \\
+		Visualización en tiempo real & No siempre & Parcial      & Parcial \\
 		Gestión multiempresa         & No         & No           & Sí \\
 		Escalabilidad                & Limitada   & Alta         & Alta \\
 		\bottomrule
@@ -124,28 +106,28 @@ La tabla \ref{tab:comparacion-soluciones} presenta una comparación entre soluci
 
 Este trabajo desarrolla un sistema de monitoreo de calidad del aire orientado a contextos urbanos e industriales de América Latina. Se utilizan tecnologías de \textit{IoT} para proporcionar una solución técnica viable y segura. El diseño fomenta la descentralización de la recolección de datos ambientales y democratiza su acceso.
 
-La arquitectura distribuida integra nodos sensores, comunicación inalámbrica, un \textit{backend} seguro y una plataforma web. El sistema incorpora sensores de bajo costo y protocolos seguros de transmisión para usuarios con distintos niveles de experiencia. Esta herramienta apoya a instituciones y comunidades interesadas en conocer las condiciones ambientales en tiepo casi real.
+La arquitectura distribuida integra nodos sensores, comunicación inalámbrica, un backend seguro y una plataforma web. El sistema incorpora sensores de bajo costo y protocolos seguros de transmisión para usuarios con distintos niveles de experiencia. Esta herramienta apoya a instituciones y comunidades interesadas en conocer las condiciones ambientales en tiepo casi real.
 
 \subsection{Objetivo general}
 
-Diseñar un sistema \textit{IoT} para el monitoreo de la calidad del aire en entornos urbanos e industriales que resulte seguro y escalable. La solución debe permitir la disponibilidad de los datos de forma privada y pública.
+Diseñar un sistema \textit{IoT} para el monitoreo de la calidad del aire que sea seguro y altamente escalable. La solución debe permitir la disponibilidad de los datos de forma privada y pública.
 
 \subsection{Objetivos específicos}
 
-Para alcanzar el propósito general del trabajo, se definieron objetivos específicos que se detallan a continuación:
+Para alcanzar el propósito general del trabajo, se definieron objetivos específicos, que se detallan a continuación:
 
 \begin{itemize}
     \item Construir nodos sensores basados en microcontroladores con conectividad Wi-Fi.
     \item Integrar sensores para la medición de material particulado, gases contaminantes, compuestos orgánicos volátiles, temperatura y humedad.
-    \item Implementar un \textit{backend} en \textit{Node.js} con base de datos \textit{MongoDB}.
-    \item Utilizar el protocolo seguro de comunicación \textit{MQTT} con cifrado \textit{TLS}.
+    \item Implementar un backend con base de datos no estructurada.
+    \item Utilizar protocolos seguros de comunicación con cifrado.
     \item Desarrollar una interfaz web moderna para la visualización de datos en tiempo real, históricos y administración de usuarios.
     \item Validar el funcionamiento del sistema en condiciones reales y evaluar su escalabilidad técnica.
 \end{itemize}
 
 \subsection{Alcance y limitaciones}
 
-El alcance comprende el desarrollo de una versión funcional con nodos sensores, \textit{backend}, base de datos y \textit{frontend}. El funcionamiento se verificó en entornos controlados sin campañas extensas de medición en campo. No se realizaron tareas de calibración profesional ni validaciones frente a instrumentos de referencia.
+El alcance comprende el desarrollo de una versión funcional con nodos sensores, backend, base de datos y frontend. El funcionamiento se verificó en entornos controlados sin campañas extensas de medición en campo. No se realizaron tareas de calibración profesional ni validaciones frente a instrumentos de referencia.
 
 La solución se orienta a contextos urbanos de pequeña o mediana escala con infraestructura de red mínima. El despliegue en zonas rurales sin conectividad no forma parte de los límites de esta etapa. Asimismo, el sistema no incluye funcionalidades de análisis predictivo o detección automática de anomalías.
 

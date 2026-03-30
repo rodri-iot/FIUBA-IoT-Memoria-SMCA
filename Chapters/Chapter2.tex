@@ -5,7 +5,7 @@
 %----------------------------------------------------------------------------------------
 %	SECTION 1
 %----------------------------------------------------------------------------------------
-Este capítulo presenta los principales componentes tecnológicos que conforman el sistema desarrollado. Se describe la arquitectura general, los dispositivos seleccionados y las tecnologías de comunicación utilizadas. También se exponen los escenarios de uso previstos y las posibles aplicaciones prácticas de la solución.
+Este capítulo presenta los principales componentes tecnológicos que conforman el sistema de monitoreo de caldiad de aire (SMCA) desarrollado. Se describe la arquitectura general, los dispositivos seleccionados y las tecnologías de comunicación utilizadas. También se exponen los escenarios de uso previstos y las posibles aplicaciones prácticas de la solución.
 
 \section{Arquitectura general del sistema}
 \label{sec:Arquitectura general del sistema}
@@ -19,25 +19,25 @@ El sistema se organiza en torno a tres componentes principales: nodos sensores d
     \label{fig:2-1-diagrama}
 \end{figure}
 
-Cada unidad recolectora utiliza el microcontrolador \texttt{ESP32 Heltec V3} \cite{heltec:v3} para la gestión de sensores y la comunicación inalámbrica. El nodo integra sensores específicos para medir material particulado, gases contaminantes y variables climáticas.
+Cada unidad recolectora utiliza el microcontrolador ESP32 Heltec V3 \cite{heltec:v3} para la gestión de sensores y la comunicación inalámbrica. El nodo integra sensores específicos para medir material particulado, gases contaminantes y variables climáticas.
 
-La transmisión de datos se realiza hacia un servidor central mediante el protocolo \textit{MQTT} (del inglés, \textit{Message Queuing Telemetry Transport}) sobre una red \textit{Wi-Fi}. Finalmente, una plataforma web desarrollada con herramientas modernas permite la visualización de la información en tiempo real.
+La transmisión de datos se realiza hacia un servidor central mediante el protocolo MQTT (del inglés, \textit{Message Queuing Telemetry Transport}) sobre una red Wi-Fi. Finalmente, una plataforma web desarrollada con herramientas modernas permite la visualización de la información en tiempo real.
 
 %----------------------------------------------------------------------------------------
 
 \section{Dispositivos IoT y sensores seleccionados}
 
-Para el desarrollo del sistema se optó por el microcontrolador \texttt{ESP32 Heltec V3} como unidad cental de los nodos. Esta placa integra un procesador de docle núcleo y conectividad \textit{Wi-Fi} nativa. La elección responde a su bajo consumo energético y la compatibilidad con múltiples interfaces de comunicación digital como \texttt{I2C} y \texttt{UART}.
+Para el desarrollo del sistema se optó por el microcontrolador ESP32 Heltec V3 como unidad central de los nodos. Esta placa integra un procesador de doble núcleo y conectividad Wi-Fi nativa. La elección responde a su bajo consumo energético y la compatibilidad con múltiples interfaces de comunicación digital como I2C, ADC y UART.
 
-Se seleccionaron sensores ambientales con un equilibrio entre costo y confiabilidad técnica. Estos compoenentes permiten caracterizar la calidad del aire mediante la medición de partículas y gases. Todos los dispositivos elegidos emplean protocolos de comunicación digital para asegurar la integridad de las señales frente a interferencias.
+Se seleccionaron sensores ambientales con un equilibrio entre costo y confiabilidad técnica. Estos componentes permiten caracterizar la calidad del aire mediante la medición de partículas y gases. Todos los dispositivos elegidos emplean protocolos de comunicación digital para asegurar la integridad de las señales frente a interferencias.
 
 Los sensores principales que integran la solución son:
 
 \begin{itemize}
-    \item \texttt{PMS7003} \cite{plantower:pms7003}: sensor óptico que utiliza la dispersión láser para medir material particulado ($PM_{2.5}$ y $PM_{10}$).
-    \item \texttt{CJMCU-4541}: módulo multigas para la detección de monóxido de carbono, dióxido de nitrógeno y amoníaco.
-    \item \texttt{SCD40} \cite{sensirion:scd40}: sensor fotoacústico para la medición de $CO_2$, temperatura y humedad relativa.
-    \item \texttt{SGP30} \cite{sensirion:sgp30}: sensor de membrana de metal-óxido para la detección de compuestos orgánicos volátiles (\textit{VOCs}).
+    \item PMS7003 \cite{plantower:pms7003}: sensor óptico que utiliza la dispersión láser para medir material particulado ($PM_{2.5}$ y $PM_{10}$).
+    \item CJMCU-4541: módulo multigas para la detección de monóxido de carbono, dióxido de nitrógeno y amoníaco.
+    \item SCD40 \cite{sensirion:scd40}: sensor fotoacústico para la medición de $CO_2$, temperatura y humedad relativa.
+    \item SGP30 \cite{sensirion:sgp30}: sensor de membrana de metal-óxido para la detección de compuestos orgánicos volátiles (\textit{VOCs}).
 \end{itemize}
 
 La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, incluidas las variables medidas y sus protocolos de comunicación:
@@ -51,7 +51,7 @@ La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, i
         \textbf{Sensor} & \textbf{Variable medida} & \textbf{Comunicación} \\
         \midrule
         PMS7003 & PM$_{2.5}$, PM$_{10}$ & UART  \\
-        CJMCU-4541 & NO$_2$, CO, NH$_3$ & I2C \\
+        CJMCU-4541 & NO$_2$, CO, NH$_3$ & ADC \\
         SCD40 & CO$_2$, temperatura, humedad & I2C \\
         SGP30 & VOCs & I2C \\
         \bottomrule
@@ -62,41 +62,36 @@ La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, i
 
 \section{Tecnologías de comunicación utilizadas}
 
-El sistema emplea una red \textit{wi-Fi} para la tansmisión de datos desde los nodos sensores hacia el servidor central. Esta tecnología permite el despliegue de los dispositivos en entornos con infraestructura de red preexistente. El esquema de comunicación se basa en el protocolo \textit{MQTT} con una capa de seguridad adicional.
+El sistema emplea una red Wi-Fi para la transmisión de datos desde los nodos sensores hacia el servidor central. Esta tecnología permite el despliegue de los dispositivos en entornos con infraestructura de red preexistente. El esquema de comunicación se basa en el protocolo MQTT con una capa de seguridad adicional.
 
-\textit{MQTT} se caracteriza por su bajo consumo de ancho de banda y su eficiencia en redes inanlámbricas. El protocolo utiliza un modelo de publicación y suscripción que facilita la gestión de múltiples nodos de forma simultánea. Esta arquitectura resulta adecuada para aplicaciones de monitoreo ambiental donde se requiere un flujo de datos constante y ligero.
+MQTT se caracteriza por su bajo consumo de ancho de banda y su eficiencia en redes inalámbricas. El protocolo utiliza un modelo de publicación y suscripción que facilita la gestión de múltiples nodos de forma simultánea. Esta arquitectura resulta adecuada para aplicaciones de monitoreo ambiental donde se requiere un flujo de datos constante y ligero.
 
-La segurdad en la transmisión se garantiza mediante el uso de certificados \textit{TLS}. Este mecanismo asegura la autenticación de los nodos emisores y la confidencialidad de la información. La integración de \textit{TLS} protege el sistema frete a posibles ataques de interceptación en la red.
+La seguridad en la transmisión se garantiza mediante el uso de certificados TLS. Este mecanismo asegura la autenticación de los nodos emisores y la confidencialidad de la información. La integración de TLS protege el sistema frente a posibles ataques de interceptación en la red.
 
 %----------------------------------------------------------------------------------------
 \section{Plataforma web para visualización}
 
-El sistema cuenta con una aplicación web diseñada para asegurar una experiencia fluida en diversos dispositivos. Se seleccionó la biblioteca \texttt{React} para el desarrollo del \textit{frontend} (del inglés, capa de presentación). Esta arquitectura se basa en el modelo de \textit{Single Page Application} (del inglés, aplicación de una sola página).
+El sistema cuenta con una aplicación web diseñada para asegurar una experiencia fluida en diversos dispositivos. Se seleccionó la biblioteca \texttt{React} para el desarrollo del frontend. La arquitectura se basa en el modelo de Single Page Application (del inglés, aplicación de una sola página). El entorno de desarrollo y construcción del proyecto utiliza \texttt{Vite}.
 
-Esta tecnología permite una navegación eficiente y evita la recarga total del navegador ante cada interacción. La plataforma integra un sistema de gestión de usuarios con diferentes niveles de acceso. Se implementó un panel de control o \textit{dashboard} para la visualización general de los datos ambientales.
+La navegación entre las diferentes vistas del sistema se gestiona mediante la biblioteca \texttt{React Router}. Para el diseño visual y la disposición de los elementos se emplea \texttt{Materialize CSS}. Esta herramienta permite aplicar estilos consistentes y asegurar la adaptabilidad de la interfaz a pantallas de distintos tamaños.
 
-La aplicación dispone de menús específicos para la administración de zonas y dispositivos. Asimismo, se habilitó una vista de invitado para la consulta pública de datos sin necesidad de autenticación. El sistema consume servicios de una \textit{API RESTful} (del inglés, \textit{Representational State Transfer}) para obtener información del \textit{backend}.
-
-La persistencia de los datos se realiza en una base de datos no estructurada \texttt{MongoDB}. La seguridad de la aplicación web se garantiza mediante protocolos de cifrado y un esquema de autenticación por roles. Esta estructura modular facilita el mantenimiento y la escalabilidad del ecosistema tecnológico.
+Para la visualización de datos en tiempo real, se implementa la tecnología de \texttt{Server-Sent Events} (SSE). Este mecanismo permite que el servidor envíe actualizaciones automáticas al navegador cuando se registra una nueva medición. La representación gráfica de los contaminantes se realiza con \texttt{Recharts}. El manejo de fechas y zonas horarias se delega en \texttt{Luxon}.
 
 %----------------------------------------------------------------------------------------
-\section{Escenarios de uso y posibles aplicaciones}
+\section{Infraestructura del servidor y persistencia}
 
-El sistema constituye una herramienta flexible y adaptable a diversos entornos urbanos e industriales. Su arquitectura modular y la interfaz multiusuario permiten su implementación en contextos con distintos niveles de infraestructura y necesidades de monitoreo. Los escenarios de uso más relevantes se detallan a continuación:
+El backend del sistema se desarrolla sobre el entorno de ejecución \texttt{Node.js}. Se utiliza el marco de trabajo \texttt{Express} para la creación de los servicios y la gestión de las rutas. La seguridad en el acceso se implementa mediante \texttt{JSON Web Token} (JWT) para la autenticación y \texttt{bcrypt} para el cifrado de contraseñas.
 
-\begin{itemize}
-    \item Instituciones educativas: permite el monitoreo de la calidad del aire en aulas, patios y entornos próximos a fuentes de contaminación. La información asiste a los equipos directivos en la toma de decisiones sobre ventilación o actividades al aire libre.
-    \item Zonas industriales o logísticas: acilita el seguimiento continuo de concentraciones de material particulado y gases en áreas expuestas a emisiones. El sistema ayuda a anticipar situaciones de riesgo y respalda auditorías ambientales.
-    \item Gobiernos locales: permite el despliegue de nodos en espacios públicos para generar mapas ambientales dinámicos. Estos datos alimentan procesos de decisión en políticas de transporte, salud y urbanismo.
-    \item Organizaciones comunitarias o ambientales: omenta el empoderamiento ciudadano mediante el acceso abierto a datos ambientales. La plataforma identifica zonas críticas y genera alertas tempranas ante condiciones adversas.
-\end{itemize}
+La persistencia de la información se realiza en una base de datos no estructurada \texttt{MongoDB}. Para la interacción entre el servidor y la base de datos se emplea \texttt{Mongoose}. Esta biblioteca actúa como un mapeador de objetos y documentos para definir esquemas y realizar consultas eficientes. El sistema se apoya en \texttt{dotenv} para la configuración de variables de entorno.
 
-El sistema contempla tres perfiles de usuarios para su operación:
+Todo el entorno de ejecución se empaqueta mediante contenedores \texttt{Docker}. El despliegue y la orquestación de los servicios se coordinan a través de \texttt{Docker Compose}. Esta metodología garantiza la paridad entre los entornos de desarrollo y producción, simplificando la instalación de dependencias y la configuración de la red interna.
 
-\begin{itemize}
-    \item Administrador general: gestiona organizaciones, zonas y usuarios con acceso completo a todas las funcionalidades.
-    \item Supervisor: monitorea dispositivos asignados a una o más zonas, visualiza datos y exporta reportes.
-    \item Usuario público: accede a la información de los nodos marcados como públicos sin necesidad de autenticación.
-\end{itemize}
+\section{Infraestructura de despliegue y servicios en la nube}
 
-Un ejemplo de aplicación práctica ocurre en una escuela ubicada en una zona de alta circulación vehicular. El equipo directivo visualiza los niveles de $PM_{2.5}$ y $CO_2$ durante la jornada escolar a través del panel web. Ante valores elevados, se decide suspender actividades al aire libre y reforzar la ventilación en las aulas. Este escenario demuestra cómo el sistema permite tomar decisiones informadas con base en datos obtenidos en tiempo casi real.
+El despliegue de la solución utiliza una arquitectura híbrida que combina servicios de computación en la nube y contenedores. Para el procesamiento de datos y la ejecución del servidor, se emplea una instancia de \texttt{Amazon EC2} con el sistema operativo \texttt{Ubuntu}. El acceso público a los servicios se gestiona mediante una \texttt{Elastic IP} asociada a la instancia y se protege a través de \texttt{Security Groups} que actúan como cortafuegos a nivel de red.
+
+La aplicación web estática se aloja en un bucket de \texttt{Amazon S3} y se distribuye globalmente mediante \texttt{Amazon CloudFront}. Esta red de entrega de contenidos utiliza certificados de \texttt{AWS Certificate Manager} para habilitar conexiones seguras mediante \texttt{HTTPS}. La gestión del dominio y los registros \texttt{DNS} se realiza a través de \texttt{Hostinger}, donde se vinculan los subdominios correspondientes al frontend y a la interfaz de programación de aplicaciones.
+
+El tráfico hacia el servidor se canaliza mediante un servidor de proxy reverso \texttt{Caddy}. Esta herramienta gestiona de forma automática la emisión y renovación de certificados \texttt{TLS} a través de \texttt{Let's Encrypt}. Para la persistencia de datos en producción, el sistema se conecta a un clúster gestionado en \texttt{MongoDB Atlas}, lo cual asegura la escalabilidad y disponibilidad de la base de datos fuera del host principal.
+
+La administración y actualización del servidor se realiza mediante conexiones seguras por \texttt{SSH} y el uso de la interfaz de línea de comandos \texttt{AWS CLI}. El flujo de despliegue asegura que el contenido estático del sitio y las peticiones a la ruta \texttt{/api} convivan bajo el mismo origen gracias a las políticas de comportamiento de la red de entrega de contenidos. Esta infraestructura garantiza un entorno de producción robusto, seguro y de alta disponibilidad para el monitoreo ambiental.
