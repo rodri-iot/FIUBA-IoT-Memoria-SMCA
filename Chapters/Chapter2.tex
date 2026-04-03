@@ -27,11 +27,18 @@ La transmisión de datos se realiza hacia un servidor central mediante el protoc
 
 \section{Dispositivos IoT y sensores seleccionados}
 
-Para el desarrollo del sistema se optó por el microcontrolador ESP32 Heltec V3 como unidad central de los nodos. Esta placa integra un procesador de doble núcleo y conectividad Wi-Fi nativa. La elección responde a su bajo consumo energético y la compatibilidad con múltiples interfaces de comunicación digital como I2C, ADC y UART.
+Para el desarrollo del sistema se optó por el microcontrolador ESP32 Heltec V3 como unidad central de los nodos, figura \ref{fig:2-2-esp32}. Esta placa integra un procesador de doble núcleo y conectividad Wi-Fi nativa. La elección responde a su bajo consumo energético y la compatibilidad con múltiples interfaces de comunicación digital como I2C, ADC y UART.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/2_2-ESP32.png}
+    \caption{Microcontrolador ESP32 Heltec V3.}
+    \label{fig:2-2-esp32}
+\end{figure}
 
 Se seleccionaron sensores ambientales con un equilibrio entre costo y confiabilidad técnica. Estos componentes permiten caracterizar la calidad del aire mediante la medición de partículas y gases. Todos los dispositivos elegidos emplean protocolos de comunicación digital para asegurar la integridad de las señales frente a interferencias.
 
-Los sensores principales que integran la solución son:
+Los sensores principales que integran la solución se muestran en la figura \ref{fig:2-3-sensores}:
 
 \begin{itemize}
     \item PMS7003 \cite{plantower:pms7003}: sensor óptico que utiliza la dispersión láser para medir material particulado ($PM_{2.5}$ y $PM_{10}$).
@@ -39,6 +46,13 @@ Los sensores principales que integran la solución son:
     \item SCD40 \cite{sensirion:scd40}: sensor fotoacústico para la medición de $CO_2$, temperatura y humedad relativa.
     \item SGP30 \cite{sensirion:sgp30}: sensor de membrana de metal-óxido para la detección de compuestos orgánicos volátiles (\textit{VOCs}).
 \end{itemize}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/2_3-sensores.png}
+    \caption{Sensores seleccionados.}
+    \label{fig:2-3-sensores}
+\end{figure}
 
 La tabla \ref{tab:sensores} presenta un resumen de los sensores seleccionados, incluidas las variables medidas y sus protocolos de comunicación:
 
@@ -66,32 +80,57 @@ El sistema emplea una red Wi-Fi para la transmisión de datos desde los nodos se
 
 MQTT se caracteriza por su bajo consumo de ancho de banda y su eficiencia en redes inalámbricas. El protocolo utiliza un modelo de publicación y suscripción que facilita la gestión de múltiples nodos de forma simultánea. Esta arquitectura resulta adecuada para aplicaciones de monitoreo ambiental donde se requiere un flujo de datos constante y ligero.
 
-La seguridad en la transmisión se garantiza mediante el uso de certificados TLS. Este mecanismo asegura la autenticación de los nodos emisores y la confidencialidad de la información. La integración de TLS protege el sistema frente a posibles ataques de interceptación en la red.
+La seguridad en la transmisión se garantiza mediante el uso de certificados TLS. Este mecanismo asegura la autenticación de los nodos emisores y la confidencialidad de la información. La integración de TLS protege el sistema frente a posibles ataques de interceptación en la red. La figura \ref{fig:2-4-mqtt} muestra el diagrama del protocolo MQTT con TLS.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figures/2_4-mqtt.png}
+    \caption{Diagrama del protocolo MQTT con TLS.}
+    \label{fig:2-4-mqtt}
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 \section{Plataforma web para visualización}
 
-El sistema cuenta con una aplicación web diseñada para asegurar una experiencia fluida en diversos dispositivos. Se seleccionó la biblioteca \texttt{React} para el desarrollo del frontend. La arquitectura se basa en el modelo de Single Page Application (del inglés, aplicación de una sola página). El entorno de desarrollo y construcción del proyecto utiliza \texttt{Vite}.
+El sistema cuenta con una aplicación web diseñada para asegurar una experiencia fluida en diversos dispositivos. Se seleccionó la biblioteca React \cite{react_web} para el desarrollo del frontend. La arquitectura se basa en el modelo de \textit{Single Page Application} (del inglés, aplicación de una sola página). El entorno de desarrollo y construcción del proyecto utiliza Vite \cite{vite_web}.
 
-La navegación entre las diferentes vistas del sistema se gestiona mediante la biblioteca \texttt{React Router}. Para el diseño visual y la disposición de los elementos se emplea \texttt{Materialize CSS}. Esta herramienta permite aplicar estilos consistentes y asegurar la adaptabilidad de la interfaz a pantallas de distintos tamaños.
+La navegación entre las diferentes vistas del sistema se gestiona mediante la biblioteca \texttt{React Router}. Para el diseño visual y la disposición de los elementos se emplea \texttt{Materialize CSS} \cite{materialize_css}. Esta herramienta permite aplicar estilos consistentes y asegurar la adaptabilidad de la interfaz a pantallas de distintos tamaños.
 
-Para la visualización de datos en tiempo real, se implementa la tecnología de \texttt{Server-Sent Events} (SSE). Este mecanismo permite que el servidor envíe actualizaciones automáticas al navegador cuando se registra una nueva medición. La representación gráfica de los contaminantes se realiza con \texttt{Recharts}. El manejo de fechas y zonas horarias se delega en \texttt{Luxon}.
+Para la visualización de datos en tiempo real, se implementa la tecnología de \textit{Server-Sent Events} (SSE). Este mecanismo permite que el servidor envíe actualizaciones automáticas al navegador cuando se registra una nueva medición. La representación gráfica de los contaminantes se realiza con \texttt{Recharts}. El manejo de fechas y zonas horarias se delega en \texttt{Luxon}.
 
 %----------------------------------------------------------------------------------------
 \section{Infraestructura del servidor y persistencia}
 
-El backend del sistema se desarrolla sobre el entorno de ejecución \texttt{Node.js}. Se utiliza el marco de trabajo \texttt{Express} para la creación de los servicios y la gestión de las rutas. La seguridad en el acceso se implementa mediante \texttt{JSON Web Token} (JWT) para la autenticación y \texttt{bcrypt} para el cifrado de contraseñas.
+El backend del sistema se desarrolla sobre el entorno de ejecución Node.js \cite{nodejs_web}. Se utiliza el marco de trabajo Express \cite{express_web} para la creación de los servicios y la gestión de las rutas. La seguridad en el acceso se implementa mediante \texttt{JSON Web Token} (JWT) para la autenticación y \texttt{bcrypt} para el cifrado de contraseñas.
 
-La persistencia de la información se realiza en una base de datos no estructurada \texttt{MongoDB}. Para la interacción entre el servidor y la base de datos se emplea \texttt{Mongoose}. Esta biblioteca actúa como un mapeador de objetos y documentos para definir esquemas y realizar consultas eficientes. El sistema se apoya en \texttt{dotenv} para la configuración de variables de entorno.
+La persistencia de la información se realiza en una base de datos no estructurada MongoDB \cite{mongodb_web}. Para la interacción entre el servidor y la base de datos se emplea \texttt{Mongoose}. Esta biblioteca actúa como un mapeador de objetos y documentos para definir esquemas y realizar consultas eficientes. El sistema se apoya en \texttt{dotenv} para la configuración de variables de entorno.
 
-Todo el entorno de ejecución se empaqueta mediante contenedores \texttt{Docker}. El despliegue y la orquestación de los servicios se coordinan a través de \texttt{Docker Compose}. Esta metodología garantiza la paridad entre los entornos de desarrollo y producción, simplificando la instalación de dependencias y la configuración de la red interna.
+Todo el entorno de ejecución se empaqueta mediante contenedores Docker \cite{docker_web}. El despliegue y la orquestación de los servicios se coordinan a través de \texttt{Docker Compose}. Esta metodología garantiza la paridad entre los entornos de desarrollo y producción, simplificando la instalación de dependencias y la configuración de la red interna.
 
 \section{Infraestructura de despliegue y servicios en la nube}
 
-El despliegue de la solución utiliza una arquitectura híbrida que combina servicios de computación en la nube y contenedores. Para el procesamiento de datos y la ejecución del servidor, se emplea una instancia de \texttt{Amazon EC2} con el sistema operativo \texttt{Ubuntu}. El acceso público a los servicios se gestiona mediante una \texttt{Elastic IP} asociada a la instancia y se protege a través de \texttt{Security Groups} que actúan como cortafuegos a nivel de red.
+En esta sección se describen las tecnologías de infraestructura y servicios en la nube que integran el sistema. Estas herramientas optimizan la disponibilidad, la seguridad y el escalamiento de la solución frente a la demanda de datos.
 
-La aplicación web estática se aloja en un bucket de \texttt{Amazon S3} y se distribuye globalmente mediante \texttt{Amazon CloudFront}. Esta red de entrega de contenidos utiliza certificados de \texttt{AWS Certificate Manager} para habilitar conexiones seguras mediante \texttt{HTTPS}. La gestión del dominio y los registros \texttt{DNS} se realiza a través de \texttt{Hostinger}, donde se vinculan los subdominios correspondientes al frontend y a la interfaz de programación de aplicaciones.
+\subsection{Amazon Elastic Compute Cloud (EC2)}
 
-El tráfico hacia el servidor se canaliza mediante un servidor de proxy reverso \texttt{Caddy}. Esta herramienta gestiona de forma automática la emisión y renovación de certificados \texttt{TLS} a través de \texttt{Let's Encrypt}. Para la persistencia de datos en producción, el sistema se conecta a un clúster gestionado en \texttt{MongoDB Atlas}, lo cual asegura la escalabilidad y disponibilidad de la base de datos fuera del host principal.
+Amazon EC2 \cite{aws_ec2} es un servicio de computación que ofrece capacidad informática escalable bajo demanda. Esta tecnología permite el control total sobre el sistema operativo Ubuntu para la ejecución del servidor central. La plataforma facilita el ajuste de recursos según el flujo de datos de los sensores y reduce los costos de mantenimiento de hardware físico.
 
-La administración y actualización del servidor se realiza mediante conexiones seguras por \texttt{SSH} y el uso de la interfaz de línea de comandos \texttt{AWS CLI}. El flujo de despliegue asegura que el contenido estático del sitio y las peticiones a la ruta \texttt{/api} convivan bajo el mismo origen gracias a las políticas de comportamiento de la red de entrega de contenidos. Esta infraestructura garantiza un entorno de producción robusto, seguro y de alta disponibilidad para el monitoreo ambiental.
+\subsection{Amazon Simple Storage Service (S3)}
+
+Amazon S3 \cite{aws_s3} proporciona un almacenamiento de objetos escalable y de alta durabilidad. Esta tecnología resulta ideal para alojar los archivos estáticos de la aplicación web de forma segura. El servicio garantiza una alta disponibilidad de la interfaz de usuario y permite una gestión eficiente de grandes volúmenes de datos mediante una infraestructura global.
+
+\subsection{amazon CloudFront}
+
+Amazon CloudFront \cite{aws_cloudfront} actúa como una red de entrega de contenidos que distribuye los datos con baja latencia. Esta herramienta acelera la carga de la plataforma web al servir el contenido desde ubicaciones geográficas cercanas al usuario. El servicio integra mecanismos de seguridad para proteger la aplicación frente a ataques de red y asegura una experiencia de navegación fluida.
+
+\subsection{Caddy y Let's Encrypt}
+
+Caddy \cite{caddy_server} se emplea como servidor de proxy reverso para gestionar el tráfico hacia el backend de forma segura. La principal ventaja de esta tecnología es la automatización del protocolo TLS mediante Let's Encrypt \cite{letsencrypt_org}. Este proceso elimina la configuración manual de certificados digitales y garantiza que todas las comunicaciones entre los clientes y el servidor utilicen cifrado de grado industrial.
+
+\subsection{MongoDB Atlas}
+
+MongoDB Atlas es un servicio de base de datos en la nube que simplifica la administración de clústeres de datos. Esta plataforma ofrece ventajas en términos de escalabilidad horizontal y copias de seguridad automáticas. El uso de un servicio gestionado asegura que la persistencia de la información sea independiente del servidor de cómputo y mantenga altos estándares de confiabilidad.
+
+\subsection{Hostinger y AWS Certificate Manager (ACM)}
+
+El sistema utiliza Hostinger \cite{hostinger_web} para la resolución de nombres de dominio y la gestión de registros DNS. Por otro lado, ACM (por abreviación, Amazon Certificate Manager) centraliza la provisión de certificados de seguridad para los servicios alojados en la nube. Ambas tecnologías trabajan de forma conjunta para asegurar que el acceso a la plataforma web y a la interfaz de programación de aplicaciones se realice bajo un entorno validado y seguro.

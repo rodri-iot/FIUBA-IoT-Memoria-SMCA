@@ -45,57 +45,112 @@ En este capítulo se describe la arquitectura modular del sistema, diseñada par
 %----------------------------------------------------------------------------------------
 \section{Diseño general del sistema IoT}
 
-El trabajo se presenta como un Sistema de Monitoreo de Calidad del Aire (SMCA), basado en una arquitectura modular que permite integrar de forma progresiva sus distintos componentes. La figura \ref{fig:3_1-modular} ilustra la estructura general del sistema, se destaca las interacciones entre sus módulos principales.
-
+El Sistema de Monitoreo de Calidad del Aire (SMCA) se basa en una arquitectura modular de cinco capas independientes, figura \ref{fig:3_1-modular}. Esta organización permite que cada componente cumpla un rol específico y se comunique con los demás mediante protocolos estandarizados. La estructura asegura la flexibilidad del desarrollo y facilita el mantenimiento de la solución al aislar las responsabilidades de cada módulo.
 
 \vspace{0.5cm}
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.85\linewidth]{Figures/3_1-Modular_Structure.png}
-    \caption{Estructura modular del sistema SMCA.}
+    \caption{Estructura modular del sistema organizada en capas independientes.}
     \label{fig:3_1-modular}
 \end{figure}
 
-La estructura general del sistema IoT está compuesta por los siguientes módulos:
+A continuación se describe cada una de las capas del sistema:
 
 \begin{itemize}
-    \item Módulo de adquisición de datos (nodo IoT): conformado por un microcontrolador y sensores ambientales. Es responsable de capturar variables como material particulado, gases, temperatura y humedad, y de gestionar las lecturas de forma autónoma.
+    \item Capa de percepción y adquisición: esta capa reside en los nodos sensores y constituye el punto de contacto con el entorno físico. El firmware, desarrollado para el microcontrolador ESP32 Heltec V3, gestiona la lectura de los sensores de material particulado, gases y variables climáticas. Su función principal es transformar las señales analógicas y digitales en tramas de datos estructuradas para su posterior envío.
     
-    \item Módulo de comunicación: se encarga de la transmisión de datos desde los nodos hacia el backend. El sistema selecciona la tecnología adecuada según la disponibildiad de infraestructura, emplea Wi-Fi con protocolo MQTTs o red LoRaWAN a través de un gateway.
+    \item Capa de transporte y mensajería: el módulo de comunicación utiliza el protocolo MQTT para el traslado de la información desde los nodos hacia la infraestructura central. Se emplea el broker \texttt{Eclipse Mosquitto} configurado con certificados TLS para garantizar la seguridad en el transporte. Esta capa funciona como un bus de datos que desacopla la generación de información de su procesamiento final.
     
-    \item Módulo backend (API y procesamiento): desarrollado en Node.js, recibe y valida las lecturas provenientes de los nodos. También administra la autenticación de dispositivos y usuarios, el control de accesos y la gestión de zonas y dispositivos.
+    \item Capa de procesamiento e integración: el backend, desarrollado en Node.js con el marco de trabajo \texttt{Express}, funciona como el núcleo inteligente del sistema. Este módulo cumple una doble función: actúa como un cliente MQTT que se suscribe a las lecturas entrantes y expone una interfaz de programación de aplicaciones (API) de tipo \texttt{REST}. El componente valida la identidad de los dispositivos, calcula el índice de calidad del aire (AQI) y gestiona la lógica de inactividad de los nodos.
     
-    \item Módulo de almacenamiento: compuesto por una base de datos MongoDB, diseñada para almacenar las mediciones de manera eficiente y estructurada, que permite consultas flexibles por zona, dispositivo y rango temporal.
+    \item Capa de persistencia: la gestión del almacenamiento se realiza mediante la base de datos no estructurada MongoDB. El sistema utiliza el mapeador de objetos \texttt{Mongoose} para definir esquemas que representan las entidades de la aplicación, tales como empresas, usuarios, dispositivos y lecturas. Esta capa asegura que la información histórica se conserve de forma eficiente y esté disponible para consultas complejas por rangos temporales o zonas geográficas
     
-    \item Módulo de visualización (frontend web): interfaz implementada con React, que permite consultar datos en tiempo real, visualizar históricos, gestionar dispositivos, zonas y usuarios, y monitorear indicadores ambientales desde una interfaz intuitiva.
+    \item Capa de presentación: La interfaz de usuario consiste en una aplicación de una sola página desarrollada con React. Este módulo se comunica exclusivamente con el backend a través de peticiones HTTP para obtener los datos procesados y gestionar la administración del sistema. El diseño separa la lógica de visualización del flujo de datos en tiempo real, lo que optimiza el rendimiento del navegador y simplifica el despliegue del frontend.
 \end{itemize}
-
-La organización modular del sistema facilitó el desarrollo y la prueba de cada componente de forma independiente. Posteriormente, se integraron los módulos en una arquitectura unificada, lo que permitió reducir la complejidad de implementación. Esta estructura garantiza la escalabilidad, ya que permite ampliar la cantidad de nodos, usuarios o zonas monitoreadas sin afectar la estabilidad ni el rendimiento general del sistema.
 
 \section{Diseño e implementación del firmware (ESP32)}
-El firmware desarrollado para el nodo IoT se implementó sobre el microcontrolador ESP32 Heltec V3, con capacidades de comunicación Wi-Fi y LoRa integradas. El desarrollo del software se realizó con el framework de ESP-IDF, lo que permitió un control detallado sobre los periféricos y la gestión de los recursos del dispositivo.
+El firmware constituye la lógica de control de los nodos sensores y se desarrolla sobre el entorno ESP-IDF (\textit{IoT Development Framework}). La implementación utiliza un enfoque modular mediante componentes independientes que interactúan bajo el sistema operativo de tiempo real FreeRTOS. Esta estructura permite la ejecución concurrente de tareas de adquisición, procesamiento y comunicación sin interferencias mutuas.
 
-El firmware se estructuró de manera modular, dividido en las funcionalidades principales de los siguientes componentes:
+\subsection{Organización por tareas y concurrencia}
 
-\begin{itemize}
-    \item Módulo de inicialización: configura los periféricos del ESP32, establece la comunicación con los sensores a través de buses I2C y UART, y valida el correcto funcionamiento de los dispositivos conectados.
-    
-    \item Módulo de adquisición de datos: se encarga de solicitar las mediciones a cada sensor según su protocolo de comunicación. Los datos se almacenan temporalmente en variables estructuradas, para asegurar su integridad antes de la transmisión.
-    
-    \item Módulo de comunicación: gestiona el envío de datos al servidor central, mediante el canal adecuado según la configuración del nodo (Wi-Fi/MQTTs o LoRaWAN). Este módulo implementa mecanismos de reconexión y control de errores.
-    
-    \item Módulo de seguridad: configura la autenticación mediante certificados TLS para conexiones MQTT y gestiona las claves de cifrado necesarias en el caso de transmisión LoRaWAN.
-\end{itemize}
+La arquitectura del software se divide en tareas con prioridades específicas para asegurar la estabilidad del nodo. Una tarea dedicada gestiona la lectura de los sensores mediante protocolos UART, I2C y ADC. Esta rutina opera con una frecuencia de muestreo definida en la configuración y actualiza una estructura de datos compartida.
 
-El ciclo de operación del nodo sigue una lógica secuencial. Primero, el sistema inicializa los periféricos y verifica la disponibilidad de los sensores. Luego, se ejecuta la rutina de adquisición de datos, donde se obtienen las lecturas de PM$_{2.5}$, CO$_2$, VOCs, temperatura y humedad. Posteriormente, los datos se transmiten al servidor a través del canal definido.
+De forma paralela, una tarea de comunicación supervisa el estado de las pilas de red TCP/IP. Este componente se encarga de la conexión a la red Wi-Fi y de la sincronización horaria mediante el protocolo \textit{SNTP} (del inglés, \textit{Simple Network Time Protocol}). La disponibilidad de la hora exacta es un requisito crítico para la validación de los certificados de seguridad en las conexiones cifradas posteriores.
 
-El firmware incorpora mecanismos de control de errores, como reintentos de lectura y envío, y permite configurar el intervalo de medición según las necesidades del entorno. Esta arquitectura modular facilita futuras modificaciones, como la incorporación de nuevos sensores o la adaptación a otros métodos de comunicación.
+\subsection{Gestión de periféricos y controladores}
 
+Cada sensor dispone de un controlador o driver específico dentro de la carpeta de componentes del proyecto. El sistema implementa lógica de recuperación para periféricos críticos como los sensores SCD40 y SGP30. En caso de fallo en la comunicación física, el firmware captura el error, reinicia el bus de datos y garantiza que el resto de las mediciones se procesen correctamente. Para el sensor de material particulado PMS7003, se utiliza una interfaz UART que opera de forma asíncrona.
+
+\subsection{Seguridad y almacenamiento en SPIFFS}
+
+El nodo utiliza una partición de sistema de archivos \textit{SPIFFS} (del inglés, \textit{Serial Peripheral Interface Flash File System}) para el almacenamiento de datos persistentes. En esta memoria se alojan los certificados de la entidad certificadora, el certificado del cliente y la clave privada necesaria para la autenticación mutua mTLS.
+
+Esta arquitectura separa el código ejecutable de las credenciales de seguridad. La capa de transporte seguro \texttt{esp\_tls} accede a estos archivos durante la fase de negociación de la conexión con el broker. Este diseño permite actualizar la identidad de los nodos mediante el flasheo de la partición de datos sin necesidad de recompilar la lógica principal del firmware.
+
+\subsection{Flujo de publicación y mensajería}
+
+Una vez establecida la conexión segura, el sistema transforma las lecturas de los sensores en un objeto con formato JSON. El cliente MQTT integrado publica este mensaje en un tópico específico que identifica al dispositivo de forma unívoca. El firmware incorpora un mecanismo de control que verifica el éxito de la publicación y gestiona reintentos automáticos ante microcortes en la conectividad inalámbrica.
 
 \section{Diseño e implementación del backend}
 
+El backend representa el núcleo lógico del sistema y se desarrolla sobre el entorno de ejecución Node.js utilizando el marco de trabajo \texttt{Express}. Su diseño sigue un modelo de arquitectura de servicios donde un único proceso gestiona la comunicación con los nodos sensores, la persistencia en la base de datos y la interfaz de programación de aplicaciones (API).
+
+\subsection{Orquestación y cliente MQTT}
+
+A diferencia de los servicios web convencionales, el backend integra un cliente \texttt{mqtt} que se mantiene en escucha permanente de los mensajes publicados por los nodos. Este módulo se conecta al broker \texttt{Eclipse Mosquitto} mediante una conexión segura por el puerto 8883. Al recibir una nueva lectura en formato JSON, el sistema realiza las siguientes operaciones:
+
+\begin{itemize}
+    \item Validación de identidad: verifica que el identificador del dispositivo exista en la base de datos y se encuentre activo.
+    \item Procesamiento de AQI: utiliza una lógica interna para calcular el índice de calidad del aire basado en los puntos de corte de la agencia de protección ambiental (EPA).
+    \item Persistencia: transforma la trama recibida en un documento compatible con los esquemas de \texttt{Mongoose} y lo almacena en la base de datos.
+\end{itemize}
+
+\subsection{Interfaz de programación de aplicaciones (API)}
+
+El sistema expone una \texttt{API REST} que sirve de puente entre los datos almacenados y la interfaz de usuario. Esta interfaz gestiona las solicitudes HTTP mediante rutas protegidas y controladores específicos. Las funciones principales de la API incluyen la gestión de entidades (usuarios, zonas, empresas), la recuperación de series históricas de mediciones y la generación de agregaciones temporales para los gráficos del dashboard.
+
+La comunicación con el frontend se realiza mediante el intercambio de objetos JSON. El servidor implementa políticas de \texttt{CORS} (del inglés, Cross-Origin Resource Sharing) para permitir el acceso controlado desde el dominio donde se aloja la aplicación web.
+
+\subsection{Seguridad y autenticación}
+
+La protección de los recursos se basa en el estándar \texttt{JSON Web Token} (JWT). Tras un inicio de sesión exitoso, el servidor emite un token firmado que el cliente debe incluir en la cabecera de cada petición posterior. Para la protección de las credenciales, se emplea la biblioteca \texttt{bcrypt}, la cual aplica funciones de dispersión o \textit{hashing} a las contraseñas antes de su almacenamiento.
+
+\subsection{Tareas de mantenimiento y gestión horaria}
+
+El backend incorpora procesos automatizados o \textit{jobs} que se ejecutan de forma periódica. Una tarea de control verifica cada minuto el estado de conexión de los dispositivos; si un nodo no envía datos en el intervalo previsto, el sistema actualiza su estado a inactivo de forma automática.
+
+Para garantizar la precisión de los reportes, la lógica de negocio utiliza la biblioteca \texttt{Luxon} y configuraciones de zona horaria específicas. Esto permite que las agregaciones de datos por día o mes coincidan con el calendario local del usuario, independientemente de la ubicación geográfica del servidor donde se aloja la aplicación.
 
 \section{Diseño e implementación del frontend web}
+
+La interfaz de usuario se concibe como una plataforma de monitoreo y administración centralizada. Se desarrolla utilizando la biblioteca React y el entorno de construcción Vite, lo cual asegura un ciclo de desarrollo ágil y una carga eficiente en el navegador. La arquitectura del frontend separa la lógica de obtención de datos de los componentes de representación visual para facilitar el mantenimiento.
+
+\subsection{Estructura de la aplicación y enrutado}
+
+La aplicación utiliza un esquema de navegación definido por \texttt{React Router}. El acceso a las diferentes secciones está condicionado por el estado de autenticación del usuario. El sistema organiza las vistas en tres áreas principales:
+
+\begin{itemize}
+    \item Panel de monitoreo: presenta un mapa interactivo con la ubicación de los nodos y tarjetas de resumen con las mediciones más recientes.
+    \item Sección de históricos: permite la consulta detallada de variables mediante gráficos temporales. Esta vista utiliza filtros por dispositivo y rangos de fecha para segmentar la información.
+    \item Administración: ofrece herramientas para la gestión de usuarios, zonas, empresas y la configuración de los nodos sensores.
+\end{itemize}
+
+\subsection{Comunicación con el backend y tiempo real}
+
+La comunicación con el servidor se realiza a través de la interfaz de programación de aplicaciones (API). El frontend utiliza la función \texttt{fetch} para realizar peticiones HTTP de tipo GET, POST, PUT y DELETE. Para optimizar el desarrollo, se implementa un proxy en la configuración de Vite que redirige las solicitudes hacia el puerto del backend.
+
+Para la actualización de los datos en tiempo real sin recargar la página, el sistema emplea \textit{Server-Sent Events} (SSE). El frontend establece una conexión persistente con el backend, la cual permite recibir notificaciones automáticas cada vez que se registra una nueva lectura de un sensor o un cambio en el estado de conexión de un dispositivo.
+
+\subsection{Visualización de datos y estilos}
+
+La representación gráfica de las variables ambientales se delega en la biblioteca \texttt{Recharts}. Los componentes están configurados para mostrar de forma clara la evolución del material particulado, los gases y las variables climáticas. El manejo de la lógica temporal, incluyendo la conversión de formatos y el soporte para la zona horaria definida en el sistema, se realiza con la biblioteca \texttt{Luxon}.
+
+El diseño visual se implementa con \texttt{Materialize CSS}, lo cual permite una interfaz consistente y adaptable. El uso de esta herramienta asegura que los elementos de navegación y las tablas de datos mantengan su funcionalidad tanto en monitores de escritorio como en dispositivos móviles.
+
+\subsection{Gestión de estado y seguridad}
+
+La aplicación almacena el token de autenticación \texttt{JWT} en el almacenamiento local del navegador para persistir la sesión del usuario. Este token se adjunta automáticamente en los encabezados de las peticiones hacia el backend. El frontend incorpora lógica de protección de rutas que verifica la validez del token antes de permitir el acceso a funciones críticas de administración, garantizando la integridad del sistema desde el lado del cliente.
 
 
 \section{Diseño de la base de datos}
