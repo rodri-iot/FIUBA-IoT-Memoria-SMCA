@@ -14,7 +14,7 @@ El sistema se organiza en torno a tres componentes principales: nodos sensores d
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.85\linewidth]{Figures/2_1-diagrama.png}
+    \includegraphics[width=1\linewidth]{Figures/2_1-diagrama.png}
     \caption{Diagrama de bloques del sistema de monitoreo de calidad de aire.}
     \label{fig:2-1-diagrama}
 \end{figure}
@@ -42,7 +42,7 @@ Los sensores principales que integran la solución se muestran en la figura \ref
 
 \begin{itemize}
     \item PMS7003 \cite{plantower:pms7003}: sensor óptico que utiliza la dispersión láser para medir material particulado ($PM_{2.5}$ y $PM_{10}$).
-    \item CJMCU-4541: módulo multigas para la detección de monóxido de carbono, dióxido de nitrógeno y amoníaco.
+    \item CJMCU-4541 \cite{sgx:mics4514}: módulo multigas para la detección de monóxido de carbono, dióxido de nitrógeno y amoníaco.
     \item SCD40 \cite{sensirion:scd40}: sensor fotoacústico para la medición de $CO_2$, temperatura y humedad relativa.
     \item SGP30 \cite{sensirion:sgp30}: sensor de membrana de metal-óxido para la detección de compuestos orgánicos volátiles (\textit{VOCs}).
 \end{itemize}
@@ -119,7 +119,7 @@ Amazon EC2 \cite{aws_ec2} es un servicio de computación que ofrece capacidad in
 
 Amazon S3 \cite{aws_s3} proporciona un almacenamiento de objetos escalable y de alta durabilidad. Esta tecnología resulta ideal para alojar los archivos estáticos de la aplicación web de forma segura. El servicio garantiza una alta disponibilidad de la interfaz de usuario y permite una gestión eficiente de grandes volúmenes de datos mediante una infraestructura global.
 
-\subsection{amazon CloudFront}
+\subsection{Amazon CloudFront}
 
 Amazon CloudFront \cite{aws_cloudfront} actúa como una red de entrega de contenidos que distribuye los datos con baja latencia. Esta herramienta acelera la carga de la plataforma web al servir el contenido desde ubicaciones geográficas cercanas al usuario. El servicio integra mecanismos de seguridad para proteger la aplicación frente a ataques de red y asegura una experiencia de navegación fluida.
 

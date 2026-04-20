@@ -1,0 +1,934 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{WHO:2021}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=89abf8102a3c4b49cb806004747603f0}{%
+           family={Organization},
+           familyi={O\bibinitperiod},
+           given={Wordl\bibnamedelima Health},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Health Organization}%
+      }
+      \strng{namehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{fullhash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{fullhashraw}{89abf8102a3c4b49cb806004747603f0}
+      \strng{bibnamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorbibnamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authornamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorfullhash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorfullhashraw}{89abf8102a3c4b49cb806004747603f0}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WHO global air quality guidelines: : Particulate matter (PM2.5 and PM10), ozone, nitrogen dioxide, sulfur dioxide and carbon monoxide}
+      \field{year}{2021}
+    \endentry
+    \entry{WHO:2018}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=89abf8102a3c4b49cb806004747603f0}{%
+           family={Organization},
+           familyi={O\bibinitperiod},
+           given={Wordl\bibnamedelima Health},
+           giveni={W\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Health Organization}%
+      }
+      \strng{namehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{fullhash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{fullhashraw}{89abf8102a3c4b49cb806004747603f0}
+      \strng{bibnamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorbibnamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authornamehash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorfullhash}{89abf8102a3c4b49cb806004747603f0}
+      \strng{authorfullhashraw}{89abf8102a3c4b49cb806004747603f0}
+      \field{extraname}{2}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Air pollution and child health: prescribing clean air}
+      \field{year}{2018}
+    \endentry
+    \entry{GCBA:2022}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=cb484d72d60e0ef764e6a78ae19bbee6}{%
+           family={{Gobierno de la Ciudad Autónoma de Buenos Aires}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{fullhash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{fullhashraw}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{bibnamehash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{authorbibnamehash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{authornamehash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{authorfullhash}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \strng{authorfullhashraw}{cb484d72d60e0ef764e6a78ae19bbee6}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Visitado el 2025-07-10}
+      \field{title}{Inventario de Emisiones de Gases de Efecto Invernadero de la Ciudad Autónoma de Buenos Aires}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://buenosaires.gob.ar/inventario-y-mitigacion/resultados-de-los-inventarios-de-gases-de-efecto-invernadero
+      \endverb
+      \verb{url}
+      \verb https://buenosaires.gob.ar/inventario-y-mitigacion/resultados-de-los-inventarios-de-gases-de-efecto-invernadero
+      \endverb
+    \endentry
+    \entry{EPA:2025}{report}{}{}
+      \name{author}{4}{}{%
+        {{hash=bc8d2da43fb25a2b03fd2ece7f887be3}{%
+           family={Clements},
+           familyi={C\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9883e2699dd3f49e9bb10d0c06e19bea}{%
+           family={Duvall},
+           familyi={D\bibinitperiod},
+           given={Rachelle},
+           giveni={R\bibinitperiod}}}%
+        {{hash=2d9284f5ab5abe063c5486cf99bc1f3d}{%
+           family={Greene},
+           familyi={G\bibinitperiod},
+           given={Danny},
+           giveni={D\bibinitperiod}}}%
+        {{hash=6a37a73d5a73416816e7023f59b6c740}{%
+           family={Dye},
+           familyi={D\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Agencia de Protección Ambiental de los Estados Unidos (EPA), Oficina de Investigación y Desarrollo, Centro de Mediciones y Modelos Ambientales}%
+      }
+      \list{location}{1}{%
+        {Research Triangle Park, NC 27711}%
+      }
+      \strng{namehash}{7305ae8621258003157f733b3983fc51}
+      \strng{fullhash}{48bd930a6a84ee19df4ca3082974e33c}
+      \strng{fullhashraw}{48bd930a6a84ee19df4ca3082974e33c}
+      \strng{bibnamehash}{7305ae8621258003157f733b3983fc51}
+      \strng{authorbibnamehash}{7305ae8621258003157f733b3983fc51}
+      \strng{authornamehash}{7305ae8621258003157f733b3983fc51}
+      \strng{authorfullhash}{48bd930a6a84ee19df4ca3082974e33c}
+      \strng{authorfullhashraw}{48bd930a6a84ee19df4ca3082974e33c}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{note}{Versión en español, 508 TAGGED, publicado el 12/09/2022}
+      \field{title}{{Guía mejorada sobre sensores de aire}}
+      \field{type}{techreport}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=CEMM&dirEntryId=356426
+      \endverb
+      \verb{url}
+      \verb https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=CEMM&dirEntryId=356426
+      \endverb
+    \endentry
+    \entry{Morawska:2018}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=474c2b94ea960012751ac09554912b63}{%
+           family={Morawska},
+           familyi={M\bibinitperiod},
+           given={Lidia},
+           giveni={L\bibinitperiod}}}%
+        {{hash=1367edc159a356d95cb5143ac1d2d45c}{%
+           family={Thai},
+           familyi={T\bibinitperiod},
+           given={Phong\bibnamedelima K.},
+           giveni={P\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=4f1e33032cdd17c1c4c17fe05bd0772d}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=23e2f58cb3abbf594097b9a13158e623}{%
+           family={Asumadu-Sakyi},
+           familyi={A\bibinithyphendelim S\bibinitperiod},
+           given={Akwasi},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c484df31bd817a8cfbe3cd583a9ff0db}{%
+           family={Ayoko},
+           familyi={A\bibinitperiod},
+           given={Godwin},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{c2f81871c3f4cc1eecb1fdda2864053d}
+      \strng{fullhash}{5267f300fbbe5a577553c0478b5decaa}
+      \strng{fullhashraw}{5267f300fbbe5a577553c0478b5decaa}
+      \strng{bibnamehash}{c2f81871c3f4cc1eecb1fdda2864053d}
+      \strng{authorbibnamehash}{c2f81871c3f4cc1eecb1fdda2864053d}
+      \strng{authornamehash}{c2f81871c3f4cc1eecb1fdda2864053d}
+      \strng{authorfullhash}{5267f300fbbe5a577553c0478b5decaa}
+      \strng{authorfullhashraw}{5267f300fbbe5a577553c0478b5decaa}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Environment International}
+      \field{title}{{Applications of low-cost sensing technologies for air quality monitoring and exposure assessment: How far have they gone?}}
+      \field{volume}{116}
+      \field{year}{2018}
+      \field{pages}{286\bibrangedash 299}
+      \range{pages}{14}
+      \verb{doi}
+      \verb 10.1016/j.envint.2018.04.018
+      \endverb
+    \endentry
+    \entry{Castell:2017}{article}{}{}
+      \name{author}{8}{}{%
+        {{hash=09be67195a6837e053be926151cc4d8b}{%
+           family={Castell},
+           familyi={C\bibinitperiod},
+           given={Nuria},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2a9463b320e99d1490602c9c74b5b9f5}{%
+           family={Dauge},
+           familyi={D\bibinitperiod},
+           given={Franck\bibnamedelima R.},
+           giveni={F\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=004e45b21a51f0b8ca676c90d64747f0}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Philipp},
+           giveni={P\bibinitperiod}}}%
+        {{hash=83ec27e2ec42769b5fddb4922404f0e8}{%
+           family={Vogt},
+           familyi={V\bibinitperiod},
+           given={Matthias},
+           giveni={M\bibinitperiod}}}%
+        {{hash=c1e66381724b9b71030940ff08fb3a99}{%
+           family={Lerner},
+           familyi={L\bibinitperiod},
+           given={Uta},
+           giveni={U\bibinitperiod}}}%
+        {{hash=740f6d6595f80cd4960a85312497df3c}{%
+           family={Fishbain},
+           familyi={F\bibinitperiod},
+           given={Barak},
+           giveni={B\bibinitperiod}}}%
+        {{hash=855370292a94dddda29782bdb9172532}{%
+           family={Broday},
+           familyi={B\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=efd567996b32395042cdf30c881a0935}{%
+           family={Bartonova},
+           familyi={B\bibinitperiod},
+           given={Alena},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b90384bd21d357f27d1a2e017029c02}
+      \strng{fullhash}{8efed43a5aadab9f1b4f8cfeaa79690a}
+      \strng{fullhashraw}{8efed43a5aadab9f1b4f8cfeaa79690a}
+      \strng{bibnamehash}{8b90384bd21d357f27d1a2e017029c02}
+      \strng{authorbibnamehash}{8b90384bd21d357f27d1a2e017029c02}
+      \strng{authornamehash}{8b90384bd21d357f27d1a2e017029c02}
+      \strng{authorfullhash}{8efed43a5aadab9f1b4f8cfeaa79690a}
+      \strng{authorfullhashraw}{8efed43a5aadab9f1b4f8cfeaa79690a}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Environment International}
+      \field{title}{{Can commercial low-cost sensor platforms contribute to air quality monitoring and exposure estimates?}}
+      \field{volume}{99}
+      \field{year}{2017}
+      \field{pages}{293\bibrangedash 302}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1016/j.envint.2016.12.007
+      \endverb
+    \endentry
+    \entry{SensorCommunity:2025}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=34a34295765e1b00959adbda2a661d99}{%
+           family={{Sensor.Community}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{34a34295765e1b00959adbda2a661d99}
+      \strng{fullhash}{34a34295765e1b00959adbda2a661d99}
+      \strng{fullhashraw}{34a34295765e1b00959adbda2a661d99}
+      \strng{bibnamehash}{34a34295765e1b00959adbda2a661d99}
+      \strng{authorbibnamehash}{34a34295765e1b00959adbda2a661d99}
+      \strng{authornamehash}{34a34295765e1b00959adbda2a661d99}
+      \strng{authorfullhash}{34a34295765e1b00959adbda2a661d99}
+      \strng{authorfullhashraw}{34a34295765e1b00959adbda2a661d99}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Sensor.Community: Build your own sensor and join the worldwide civic tech network}}
+      \field{urlday}{18}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://sensor.community/
+      \endverb
+      \verb{url}
+      \verb https://sensor.community/
+      \endverb
+    \endentry
+    \entry{OpenAQ:2020}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=96e310850463bee9b3faae950815c82e}{%
+           family={OpenAQ},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{96e310850463bee9b3faae950815c82e}
+      \strng{fullhash}{96e310850463bee9b3faae950815c82e}
+      \strng{fullhashraw}{96e310850463bee9b3faae950815c82e}
+      \strng{bibnamehash}{96e310850463bee9b3faae950815c82e}
+      \strng{authorbibnamehash}{96e310850463bee9b3faae950815c82e}
+      \strng{authornamehash}{96e310850463bee9b3faae950815c82e}
+      \strng{authorfullhash}{96e310850463bee9b3faae950815c82e}
+      \strng{authorfullhashraw}{96e310850463bee9b3faae950815c82e}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://openaq.org}}
+      \field{title}{Open data platform for air quality}
+      \field{urlday}{17}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2020}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{PurpleAir:2021}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=e23638d29d6a9c779af43d0269b8df24}{%
+           family={LLC},
+           familyi={L\bibinitperiod},
+           given={PurpleAir},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{fullhash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{fullhashraw}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{bibnamehash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{authorbibnamehash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{authornamehash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{authorfullhash}{e23638d29d6a9c779af43d0269b8df24}
+      \strng{authorfullhashraw}{e23638d29d6a9c779af43d0269b8df24}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://www2.purpleair.com}}
+      \field{title}{PurpleAir sensor network}
+      \field{urlday}{17}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2021}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{Alvarez:2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=f964de39a63fcd772124eef41a6d4040}{%
+           family={Álvarez},
+           familyi={Á\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3b91c16db0a4e6f892f0ea37e0446de7}{%
+           family={Gómez},
+           familyi={G\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=befac43ef8cf785a690742d6501f0e23}{%
+           family={Carmona},
+           familyi={C\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{fullhash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{fullhashraw}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{bibnamehash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{authorbibnamehash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{authornamehash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{authorfullhash}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \strng{authorfullhashraw}{d48a7abc06fce0650bb16206fe2f3d5f}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Environmental Research Letters}
+      \field{number}{9}
+      \field{title}{{Low-cost air quality sensors in Latin America: Opportunities and challenges}}
+      \field{volume}{16}
+      \field{year}{2021}
+      \field{pages}{094001}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1088/1748-9326/ac1b1e
+      \endverb
+    \endentry
+    \entry{FIUBA:2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=7affcc9829d77651ee4c9accf99bd8ed}{%
+           family={Ordoñez},
+           familyi={O\bibinitperiod},
+           given={Ing.\bibnamedelimi Jonathan\bibnamedelima Cagua},
+           giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{fullhash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{fullhashraw}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{bibnamehash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{authorbibnamehash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{authornamehash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{authorfullhash}{7affcc9829d77651ee4c9accf99bd8ed}
+      \strng{authorfullhashraw}{7affcc9829d77651ee4c9accf99bd8ed}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://lse-posgrados-files.fi.uba.ar/tesis/LSE-FIUBA-Trabajo-Final-CESE-Jonathan-Cagua-Ordonez-2023.pdf}}
+      \field{title}{Monitor portable de calidad de aire}
+      \field{urlday}{17}
+      \field{urlmonth}{7}
+      \field{urlyear}{2025}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+    \endentry
+    \entry{heltec:v3}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=2594b5508a837f725b2378fde41b32da}{%
+           family={{Heltec Automation}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2594b5508a837f725b2378fde41b32da}
+      \strng{fullhash}{2594b5508a837f725b2378fde41b32da}
+      \strng{fullhashraw}{2594b5508a837f725b2378fde41b32da}
+      \strng{bibnamehash}{2594b5508a837f725b2378fde41b32da}
+      \strng{authorbibnamehash}{2594b5508a837f725b2378fde41b32da}
+      \strng{authornamehash}{2594b5508a837f725b2378fde41b32da}
+      \strng{authorfullhash}{2594b5508a837f725b2378fde41b32da}
+      \strng{authorfullhashraw}{2594b5508a837f725b2378fde41b32da}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://heltec.org/project/wifi-lora-32-v3/}}
+      \field{note}{Consultado el 01/08/2025}
+      \field{title}{{WiFi LoRa 32 V3 – Microcontroller con Wi-Fi, LoRa y OLED integrado}}
+      \field{year}{2025}
+    \endentry
+    \entry{plantower:pms7003}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=d7e8222a70ae773c096a3adcb70223ff}{%
+           family={{Plantower}},
+           familyi={P\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Plantower Co., Ltd.}%
+      }
+      \strng{namehash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{fullhash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{fullhashraw}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{bibnamehash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{authorbibnamehash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{authornamehash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{authorfullhash}{d7e8222a70ae773c096a3adcb70223ff}
+      \strng{authorfullhashraw}{d7e8222a70ae773c096a3adcb70223ff}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Versión consultada el 01/08/2025}
+      \field{title}{PMS7003 Series Data Manual}
+      \field{year}{2016}
+      \verb{urlraw}
+      \verb https://aqicn.org/sensor/pms5003-7003/
+      \endverb
+      \verb{url}
+      \verb https://aqicn.org/sensor/pms5003-7003/
+      \endverb
+    \endentry
+    \entry{sgx:mics4514}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=35d3283654ac9c0a94a0ba32eccda182}{%
+           family={{SGX Sensortech (Amphenol Group)}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {SGX Sensortech Limited}%
+      }
+      \strng{namehash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{fullhash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{fullhashraw}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{bibnamehash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{authorbibnamehash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{authornamehash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{authorfullhash}{35d3283654ac9c0a94a0ba32eccda182}
+      \strng{authorfullhashraw}{35d3283654ac9c0a94a0ba32eccda182}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Versión consultada el 13/04/2026}
+      \field{title}{MiCS-4514 Dual Sensor Datasheet (CO and NO$_2$)}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://www.sgxsensortech.com/content/uploads/2014/08/0278_Datasheet-MiCS-4514-rev-16.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.sgxsensortech.com/content/uploads/2014/08/0278_Datasheet-MiCS-4514-rev-16.pdf
+      \endverb
+    \endentry
+    \entry{sensirion:scd40}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=0d4c75dd73e24393e1d9e2b5dfe09e6a}{%
+           family={{Sensirion AG Switzerland}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Sensirion AG Switzerland}%
+      }
+      \strng{namehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{fullhash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{fullhashraw}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{bibnamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorbibnamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authornamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorfullhash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorfullhashraw}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Versión consultada el 01/08/2025}
+      \field{title}{SCD40 CO₂ Sensor Datasheet}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://sensirion.com/products/catalog/SCD40
+      \endverb
+      \verb{url}
+      \verb https://sensirion.com/products/catalog/SCD40
+      \endverb
+    \endentry
+    \entry{sensirion:sgp30}{manual}{}{}
+      \name{author}{1}{}{%
+        {{hash=0d4c75dd73e24393e1d9e2b5dfe09e6a}{%
+           family={{Sensirion AG Switzerland}},
+           familyi={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Sensirion AG Switzerland}%
+      }
+      \strng{namehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{fullhash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{fullhashraw}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{bibnamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorbibnamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authornamehash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorfullhash}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \strng{authorfullhashraw}{0d4c75dd73e24393e1d9e2b5dfe09e6a}
+      \field{extraname}{2}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Versión consultada el 01/08/2025}
+      \field{title}{SGP30 Multi-Gas Sensor Datasheet}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://sensirion.com/products/catalog/SGP30
+      \endverb
+      \verb{url}
+      \verb https://sensirion.com/products/catalog/SGP30
+      \endverb
+    \endentry
+    \entry{react_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=350a86b0327152e3a50596538f38a5db}{%
+           family={{Meta Platforms, Inc.}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{fullhash}{350a86b0327152e3a50596538f38a5db}
+      \strng{fullhashraw}{350a86b0327152e3a50596538f38a5db}
+      \strng{bibnamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authorbibnamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authornamehash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authorfullhash}{350a86b0327152e3a50596538f38a5db}
+      \strng{authorfullhashraw}{350a86b0327152e3a50596538f38a5db}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{React: The library for web and native user interfaces}
+      \verb{urlraw}
+      \verb https://react.dev/
+      \endverb
+      \verb{url}
+      \verb https://react.dev/
+      \endverb
+    \endentry
+    \entry{vite_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c9b7eebec98bfd1a3c2bacf7f17d463f}{%
+           family={{Vite Team}},
+           familyi={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{fullhash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{fullhashraw}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{bibnamehash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{authorbibnamehash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{authornamehash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{authorfullhash}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \strng{authorfullhashraw}{c9b7eebec98bfd1a3c2bacf7f17d463f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Vite: Next Generation Frontend Tooling}
+      \verb{urlraw}
+      \verb https://vitejs.dev/
+      \endverb
+      \verb{url}
+      \verb https://vitejs.dev/
+      \endverb
+    \endentry
+    \entry{materialize_css}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=73115864d67cc7bbf948247184f32fe0}{%
+           family={{Materialize Team}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{fullhash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{fullhashraw}{73115864d67cc7bbf948247184f32fe0}
+      \strng{bibnamehash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{authorbibnamehash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{authornamehash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{authorfullhash}{73115864d67cc7bbf948247184f32fe0}
+      \strng{authorfullhashraw}{73115864d67cc7bbf948247184f32fe0}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Materialize: A modern responsive front-end framework based on Material Design}
+      \verb{urlraw}
+      \verb https://materializecss.com/
+      \endverb
+      \verb{url}
+      \verb https://materializecss.com/
+      \endverb
+    \endentry
+    \entry{nodejs_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=263642944f6c498301458458c276f5f3}{%
+           family={{OpenJS Foundation}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhashraw}{263642944f6c498301458458c276f5f3}
+      \strng{bibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorbibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authornamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhashraw}{263642944f6c498301458458c276f5f3}
+      \field{extraname}{1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Node.js: JavaScript runtime built on Chrome's V8 JavaScript engine}
+      \verb{urlraw}
+      \verb https://nodejs.org/
+      \endverb
+      \verb{url}
+      \verb https://nodejs.org/
+      \endverb
+    \endentry
+    \entry{express_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=263642944f6c498301458458c276f5f3}{%
+           family={{OpenJS Foundation}},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhash}{263642944f6c498301458458c276f5f3}
+      \strng{fullhashraw}{263642944f6c498301458458c276f5f3}
+      \strng{bibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorbibnamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authornamehash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhash}{263642944f6c498301458458c276f5f3}
+      \strng{authorfullhashraw}{263642944f6c498301458458c276f5f3}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Express: Fast, unopinionated, minimalist web framework for Node.js}
+      \verb{urlraw}
+      \verb https://expressjs.com/
+      \endverb
+      \verb{url}
+      \verb https://expressjs.com/
+      \endverb
+    \endentry
+    \entry{mongodb_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ad43b4c617def33deb8f50973cbf20d1}{%
+           family={{MongoDB, Inc.}},
+           familyi={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{fullhash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{fullhashraw}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{bibnamehash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{authorbibnamehash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{authornamehash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{authorfullhash}{ad43b4c617def33deb8f50973cbf20d1}
+      \strng{authorfullhashraw}{ad43b4c617def33deb8f50973cbf20d1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{MongoDB: The Developer Data Platform}
+      \verb{urlraw}
+      \verb https://www.mongodb.com/
+      \endverb
+      \verb{url}
+      \verb https://www.mongodb.com/
+      \endverb
+    \endentry
+    \entry{docker_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=e6f3d214228cc5933c1a82019f7dc0e0}{%
+           family={{Docker, Inc.}},
+           familyi={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{fullhash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{fullhashraw}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{bibnamehash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{authorbibnamehash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{authornamehash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{authorfullhash}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \strng{authorfullhashraw}{e6f3d214228cc5933c1a82019f7dc0e0}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Docker: Accelerated Container Application Development}
+      \verb{urlraw}
+      \verb https://www.docker.com/
+      \endverb
+      \verb{url}
+      \verb https://www.docker.com/
+      \endverb
+    \endentry
+    \entry{aws_ec2}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=9145c8d27e8df3d15e63d3e2d5c53088}{%
+           family={{Amazon Web Services, Inc.}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{bibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorbibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authornamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \field{extraname}{1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Amazon EC2: Virtual Server Hosting in the Cloud}
+      \verb{urlraw}
+      \verb https://aws.amazon.com/ec2/
+      \endverb
+      \verb{url}
+      \verb https://aws.amazon.com/ec2/
+      \endverb
+    \endentry
+    \entry{aws_s3}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=9145c8d27e8df3d15e63d3e2d5c53088}{%
+           family={{Amazon Web Services, Inc.}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{bibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorbibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authornamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \field{extraname}{2}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Amazon S3: Cloud Object Storage}
+      \verb{urlraw}
+      \verb https://aws.amazon.com/s3/
+      \endverb
+      \verb{url}
+      \verb https://aws.amazon.com/s3/
+      \endverb
+    \endentry
+    \entry{aws_cloudfront}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=9145c8d27e8df3d15e63d3e2d5c53088}{%
+           family={{Amazon Web Services, Inc.}},
+           familyi={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{fullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{bibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorbibnamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authornamehash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhash}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \strng{authorfullhashraw}{9145c8d27e8df3d15e63d3e2d5c53088}
+      \field{extraname}{3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Amazon CloudFront: Low-latency Content Delivery Network}
+      \verb{urlraw}
+      \verb https://aws.amazon.com/cloudfront/
+      \endverb
+      \verb{url}
+      \verb https://aws.amazon.com/cloudfront/
+      \endverb
+    \endentry
+    \entry{caddy_server}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ae26f6f35ab0957f8ee128e499c9324b}{%
+           family={{Caddy Team}},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{fullhash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{fullhashraw}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{bibnamehash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{authorbibnamehash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{authornamehash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{authorfullhash}{ae26f6f35ab0957f8ee128e499c9324b}
+      \strng{authorfullhashraw}{ae26f6f35ab0957f8ee128e499c9324b}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-03}
+      \field{title}{Caddy 2: The ultimate cloud native web server with automatic HTTPS}
+      \verb{urlraw}
+      \verb https://caddyserver.com/
+      \endverb
+      \verb{url}
+      \verb https://caddyserver.com/
+      \endverb
+    \endentry
+    \entry{letsencrypt_org}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=4764c6ac6495c51ba1b6e3c8100c5023}{%
+           family={{Internet Security Research Group (ISRG)}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{fullhash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{fullhashraw}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{bibnamehash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{authorbibnamehash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{authornamehash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{authorfullhash}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \strng{authorfullhashraw}{4764c6ac6495c51ba1b6e3c8100c5023}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-03}
+      \field{title}{Let's Encrypt: A free, automated, and open certificate authority}
+      \verb{urlraw}
+      \verb https://letsencrypt.org/
+      \endverb
+      \verb{url}
+      \verb https://letsencrypt.org/
+      \endverb
+    \endentry
+    \entry{hostinger_web}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=3fd6e10cc937b44afa19ed717b870536}{%
+           family={{Hostinger International, Ltd.}},
+           familyi={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{fullhash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{fullhashraw}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{bibnamehash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{authorbibnamehash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{authornamehash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{authorfullhash}{3fd6e10cc937b44afa19ed717b870536}
+      \strng{authorfullhashraw}{3fd6e10cc937b44afa19ed717b870536}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Disponible: 2026-04-02}
+      \field{title}{Hostinger: Web Hosting Services and Domain Registration}
+      \verb{urlraw}
+      \verb https://www.hostinger.com/
+      \endverb
+      \verb{url}
+      \verb https://www.hostinger.com/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
